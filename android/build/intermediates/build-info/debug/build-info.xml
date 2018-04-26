@@ -5,9 +5,8 @@
     build-mode="COLD"
     density="xxhdpi"
     format="10"
-    ir-eligibility="COMPATIBLE"
     plugin-version="3.1.1"
-    timestamp="1524161001877"
+    timestamp="1524756758453"
     token="3768284458936415934"
     verifier="COLD_SWAP_REQUESTED" >
 
@@ -19,24 +18,24 @@
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="14" />
+        duration="0" />
     <task
         name="verifier"
-        duration="4" />
+        duration="0" />
 
     <artifact
-        location="D:\Ambiente de Trabalho\LPOO\RedBullAirRace\android\build\intermediates\split-apk\debug\slices\slice_3.apk"
-        type="SPLIT" />
+        location="D:\Ambiente de Trabalho\LPOO\RedBullAirRace\android\build\intermediates\instant-run-apk\debug\android-debug.apk"
+        type="SPLIT_MAIN" />
 
     <build
         build-mode="FULL"
-        timestamp="1524160978635"
+        timestamp="1524756435605"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
-            location="D:\Ambiente de Trabalho\LPOO\RedBullAirRace\android\build\intermediates\split-apk\debug\slices\slice_3.apk"
+            location="D:\Ambiente de Trabalho\LPOO\RedBullAirRace\android\build\intermediates\split-apk\debug\slices\slice_9.apk"
             type="SPLIT" />
         <artifact
-            location="D:\Ambiente de Trabalho\LPOO\RedBullAirRace\android\build\intermediates\split-apk\debug\slices\slice_9.apk"
+            location="D:\Ambiente de Trabalho\LPOO\RedBullAirRace\android\build\intermediates\split-apk\debug\slices\slice_3.apk"
             type="SPLIT" />
         <artifact
             location="D:\Ambiente de Trabalho\LPOO\RedBullAirRace\android\build\intermediates\split-apk\debug\slices\slice_6.apk"
@@ -74,12 +73,11 @@
     </build>
     <build
         build-mode="COLD"
-        ir-eligibility="COMPATIBLE"
-        timestamp="1524161001877"
+        timestamp="1524756758453"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
-            location="D:\Ambiente de Trabalho\LPOO\RedBullAirRace\android\build\intermediates\split-apk\debug\slices\slice_3.apk"
-            type="SPLIT" />
+            location="D:\Ambiente de Trabalho\LPOO\RedBullAirRace\android\build\intermediates\instant-run-apk\debug\android-debug.apk"
+            type="SPLIT_MAIN" />
     </build>
 
 </instant-run>
