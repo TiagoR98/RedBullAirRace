@@ -18,3 +18,4 @@ Red Bull Air race game based on flappy bird!
 * VerificacaoHighscore
 * EscolhaDeAviao
 
+![Classes](/images/UML.bmp)
