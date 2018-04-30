@@ -2,12 +2,12 @@
 Red Bull Air race game based on flappy bird!
 
 ## Checkpoint
-## Padrões de jogo:
-* **Keep ‘em Separated** – Baseado na estrutura do jogo Asteroids fornecido. Permite separar os componentes do jogo e implementar uma arquitetura MVC. <return>
-* **One to rule them All** – Presente na classe RedBullGame, Game Controller,Game Model e Game View, de modo a numa instância juntar todos os objetos de cada componente do jogo.<return>
-* **Observer** - Implementado entre o avião e o pylon. Permite ao pylon notificar o avião que ocorreu uma colisão, desencadeando uma ação em ambos os objetos.<return>
-* **Reuse, restore, recycle** -  Os pylons serão gerados com recurso à classe pool fornecida pelo LibGDX, evitando assim a constante alocação e destruição de objetos em memória à medida que se avança no nível de jogo, aumentando a eficiência e performance.<return>
-* **Be Different** – Utilizado em definir diversos tipos para os aviões, pylons e posições de voo. Permite que estes tipos sejam totalmente dinâmicos, podendo adicionar-se novos sem a necessidade de modificar o código existente.<return>
+## Padrï¿½es de jogo:
+* **Keep ï¿½em Separated** ï¿½ Baseado na estrutura do jogo Asteroids fornecido. Permite separar os componentes do jogo e implementar uma arquitetura MVC. <return>
+* **One to rule them All** ï¿½ Presente na classe RedBullGame, Game Controller,Game Model e Game View, de modo a numa instï¿½ncia juntar todos os objetos de cada componente do jogo.<return>
+* **Observer** - Implementado entre o aviï¿½o e o pylon. Permite ao pylon notificar o aviï¿½o que ocorreu uma colisï¿½o, desencadeando uma aï¿½ï¿½o em ambos os objetos.<return>
+* **Reuse, restore, recycle** -  Os pylons serï¿½o gerados com recurso ï¿½ classe pool fornecida pelo LibGDX, evitando assim a constante alocaï¿½ï¿½o e destruiï¿½ï¿½o de objetos em memï¿½ria ï¿½ medida que se avanï¿½a no nï¿½vel de jogo, aumentando a eficiï¿½ncia e performance.<return>
+* **Be Different** ï¿½ Utilizado em definir diversos tipos para os aviï¿½es, pylons e posiï¿½ï¿½es de voo. Permite que estes tipos sejam totalmente dinï¿½micos, podendo adicionar-se novos sem a necessidade de modificar o cï¿½digo existente.<return>
 
 ## Casos de teste
 * VelocidadeAdequada
@@ -18,14 +18,23 @@ Red Bull Air race game based on flappy bird!
 * VerificacaoHighscore
 * EscolhaDeAviao
 
-## Classes
+## Diagramas UML
+
+### Classes
 ![Classes](/images/UML.bmp)
 
-## Packages
+### Packages
 ![Packages](/images/packages.bmp) <------ mudar
 
-## Casos de utilização
+### Casos de utilizaÃ§Ã£o
 ![casos](/images/use_case.bmp)
 
-## Diagrama de estados
+### Diagrama de estados
 ![estados](/images/state.bmp)
+
+## Mockups
+
+
+Menu Principal | HighScores | Regras do Jogo
+---------------|------------|---------------
+![menu_principal](/images/main_menu.png)|![highscores](/images/highscores.png)|![Regras](/images/rules.png)
