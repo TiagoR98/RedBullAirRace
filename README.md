@@ -11,9 +11,6 @@
 #### Classes
 ![Classes](/images/UML.bmp)
 
-#### Packages
-![Packages](/images/packages.bmp)
-
 #### Casos de utilização
 ![casos](/images/use_case.bmp)
 
