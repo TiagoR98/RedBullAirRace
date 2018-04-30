@@ -9,7 +9,7 @@ Red Bull Air race game based on flappy bird!
 * **Reuse, restore, recycle** -  Os pylons serão gerados com recurso à classe pool fornecida pelo LibGDX, evitando assim a constante alocação e destruição de objetos em memória à medida que se avança no nível de jogo, aumentando a eficiência e performance.<return>
 * **Be Different** – Utilizado em definir diversos tipos para os aviões, pylons e posições de voo. Permite que estes tipos sejam totalmente dinâmicos, podendo adicionar-se novos sem a necessidade de modificar o código existente.<return>
 
-## Casos de teste:
+## Casos de teste
 * VelocidadeAdequada
 * ImpulsoAoToque
 * ColisaoComPylon
@@ -18,4 +18,14 @@ Red Bull Air race game based on flappy bird!
 * VerificacaoHighscore
 * EscolhaDeAviao
 
+## Classes
 ![Classes](/images/UML.bmp)
+
+## Packages
+![Packages](/images/packages.bmp) <------ mudar
+
+## Casos de utilização
+![casos](/images/use_case.bmp)
+
+## Diagrama de estados
+![estados](/images/state.bmp)
