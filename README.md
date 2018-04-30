@@ -6,9 +6,9 @@
 
 ## Checkpoint
 
-## Diagramas UML
+### Diagramas UML
 
-### Classes
+#### Classes
 ![Classes](/images/UML.bmp)
 
 ### Packages
