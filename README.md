@@ -6,8 +6,8 @@
 
 ## Checkpoint
 
-## Padr�es de jogo:
-* **Keep �em Separated** - Baseado na estrutura do jogo Asteroids fornecido. Permite separar os componentes do jogo e implementar uma arquitetura MVC. <return>
+## Padrôes de jogo:
+* **Keep 'em Separated** - Baseado na estrutura do jogo Asteroids fornecido. Permite separar os componentes do jogo e implementar uma arquitetura MVC. <return>
 * **One to rule them All** - Presente na classe RedBullGame, Game Controller,Game Model e Game View, de modo a numa instância juntar todos os objetos de cada componente do jogo.<return>
 * **Observer** - Implementado entre o avião e o pylon. Permite ao pylon notificar o avião que ocorreu uma colisão, desencadeando uma ação em ambos os objetos.<return>
 * **Reuse, restore, recycle** -  Os pylons serão gerados com recurso à classe pool fornecida pelo LibGDX, evitando assim a constante alocação e destruição de objetos em memória à medida que se avança no nível de jogo, aumentando a eficiência e performance.<return>
@@ -42,3 +42,10 @@
 Menu Principal | HighScores | Regras do Jogo
 ---------------|------------|---------------
 ![menu_principal](/images/main_menu.png)|![highscores](/images/highscores.png)|![Regras](/images/rules.png)
+|--------------|------------|---------------
+Escolher Avião | Jogo | Game Over
+---------------|------|----------
+![choose_plane](/images/choose_plane.png)|![game](/images/game.png)|![game_over](/images/game_over.png)
+Submeter HighScore |
+-------------------|
+![submit_highscore](/images/submit_highscore.png)|
