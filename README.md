@@ -1,13 +1,17 @@
 # RedBullAirRace
-Red Bull Air race game based on flappy bird!
+
+## Autores
+- Tiago José Antunes Ribeiro | 201605619 | up201605619@fe.up.pt
+- Bruno Edgar Évora Rebelo Oliveira | 201605516 | up201605516@fe.up.pt
 
 ## Checkpoint
+
 ## Padr�es de jogo:
-* **Keep �em Separated** � Baseado na estrutura do jogo Asteroids fornecido. Permite separar os componentes do jogo e implementar uma arquitetura MVC. <return>
-* **One to rule them All** � Presente na classe RedBullGame, Game Controller,Game Model e Game View, de modo a numa inst�ncia juntar todos os objetos de cada componente do jogo.<return>
-* **Observer** - Implementado entre o avi�o e o pylon. Permite ao pylon notificar o avi�o que ocorreu uma colis�o, desencadeando uma a��o em ambos os objetos.<return>
-* **Reuse, restore, recycle** -  Os pylons ser�o gerados com recurso � classe pool fornecida pelo LibGDX, evitando assim a constante aloca��o e destrui��o de objetos em mem�ria � medida que se avan�a no n�vel de jogo, aumentando a efici�ncia e performance.<return>
-* **Be Different** � Utilizado em definir diversos tipos para os avi�es, pylons e posi��es de voo. Permite que estes tipos sejam totalmente din�micos, podendo adicionar-se novos sem a necessidade de modificar o c�digo existente.<return>
+* **Keep �em Separated** - Baseado na estrutura do jogo Asteroids fornecido. Permite separar os componentes do jogo e implementar uma arquitetura MVC. <return>
+* **One to rule them All** - Presente na classe RedBullGame, Game Controller,Game Model e Game View, de modo a numa instância juntar todos os objetos de cada componente do jogo.<return>
+* **Observer** - Implementado entre o avião e o pylon. Permite ao pylon notificar o avião que ocorreu uma colisão, desencadeando uma ação em ambos os objetos.<return>
+* **Reuse, restore, recycle** -  Os pylons serão gerados com recurso à classe pool fornecida pelo LibGDX, evitando assim a constante alocação e destruição de objetos em memória à medida que se avança no nível de jogo, aumentando a eficiência e performance.<return>
+* **Be Different** - Utilizado em definir diversos tipos para os aviães, pylons e posições de voo. Permite que estes tipos sejam totalmente dinâmicos, podendo adicionar-se novos sem a necessidade de modificar o código existente.<return>
 
 ## Casos de teste
 * VelocidadeAdequada
