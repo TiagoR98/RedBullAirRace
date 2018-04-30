@@ -42,9 +42,11 @@
 Menu Principal | HighScores | Regras do Jogo
 ---------------|------------|---------------
 ![menu_principal](/images/main_menu.png)|![highscores](/images/highscores.png)|![Regras](/images/rules.png)
+
 Escolher Avião | Jogo | Game Over
 ---------------|------|----------
 ![choose_plane](/images/choose_plane.png)|![game](/images/game.png)|![game_over](/images/game_over.png)
+
 Submeter HighScore |
 -------------------|
 ![submit_highscore](/images/submit_highscore.png)|
