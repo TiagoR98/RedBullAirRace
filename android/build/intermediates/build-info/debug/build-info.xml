@@ -5,8 +5,9 @@
     build-mode="COLD"
     density="xxhdpi"
     format="10"
+    ir-eligibility="COMPATIBLE"
     plugin-version="3.1.1"
-    timestamp="1524756758453"
+    timestamp="1525365007337"
     token="3768284458936415934"
     verifier="COLD_SWAP_REQUESTED" >
 
@@ -18,19 +19,22 @@
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="0" />
+        duration="15" />
     <task
         name="verifier"
-        duration="0" />
+        duration="3" />
 
     <artifact
-        location="D:\Ambiente de Trabalho\LPOO\RedBullAirRace\android\build\intermediates\instant-run-apk\debug\android-debug.apk"
-        type="SPLIT_MAIN" />
+        location="D:\Ambiente de Trabalho\LPOO\RedBullAirRace\android\build\intermediates\split-apk\debug\slices\slice_0.apk"
+        type="SPLIT" />
 
     <build
         build-mode="FULL"
-        timestamp="1524756435605"
+        timestamp="1525364920557"
         verifier="FULL_BUILD_REQUESTED" >
+        <artifact
+            location="D:\Ambiente de Trabalho\LPOO\RedBullAirRace\android\build\intermediates\split-apk\debug\slices\slice_0.apk"
+            type="SPLIT" />
         <artifact
             location="D:\Ambiente de Trabalho\LPOO\RedBullAirRace\android\build\intermediates\split-apk\debug\slices\slice_9.apk"
             type="SPLIT" />
@@ -42,9 +46,6 @@
             type="SPLIT" />
         <artifact
             location="D:\Ambiente de Trabalho\LPOO\RedBullAirRace\android\build\intermediates\resources\instant-run\debug\resources-debug.apk"
-            type="SPLIT" />
-        <artifact
-            location="D:\Ambiente de Trabalho\LPOO\RedBullAirRace\android\build\intermediates\split-apk\debug\slices\slice_0.apk"
             type="SPLIT" />
         <artifact
             location="D:\Ambiente de Trabalho\LPOO\RedBullAirRace\android\build\intermediates\split-apk\debug\slices\slice_1.apk"
@@ -73,11 +74,12 @@
     </build>
     <build
         build-mode="COLD"
-        timestamp="1524756758453"
+        ir-eligibility="COMPATIBLE"
+        timestamp="1525365007337"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
-            location="D:\Ambiente de Trabalho\LPOO\RedBullAirRace\android\build\intermediates\instant-run-apk\debug\android-debug.apk"
-            type="SPLIT_MAIN" />
+            location="D:\Ambiente de Trabalho\LPOO\RedBullAirRace\android\build\intermediates\split-apk\debug\slices\slice_0.apk"
+            type="SPLIT" />
     </build>
 
 </instant-run>
