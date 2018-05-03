@@ -1,15 +1,44 @@
 # RedBullAirRace
-Red Bull Air race game based on flappy bird!
+
+## Autores
+- Tiago Jos√© Antunes Ribeiro | 201605619 | up201605619@fe.up.pt
+- Bruno Edgar √âvora Rebelo Oliveira | 201605516 | up201605516@fe.up.pt
 
 ## Checkpoint
-## Padrıes de jogo:
-* **Keep ëem Separated** ñ Baseado na estrutura do jogo Asteroids fornecido. Permite separar os componentes do jogo e implementar uma arquitetura MVC. <return>
-* **One to rule them All** ñ Presente na classe RedBullGame, Game Controller,Game Model e Game View, de modo a numa inst‚ncia juntar todos os objetos de cada componente do jogo.<return>
-* **Observer** - Implementado entre o avi„o e o pylon. Permite ao pylon notificar o avi„o que ocorreu uma colis„o, desencadeando uma aÁ„o em ambos os objetos.<return>
-* **Reuse, restore, recycle** -  Os pylons ser„o gerados com recurso ‡ classe pool fornecida pelo LibGDX, evitando assim a constante alocaÁ„o e destruiÁ„o de objetos em memÛria ‡ medida que se avanÁa no nÌvel de jogo, aumentando a eficiÍncia e performance.<return>
-* **Be Different** ñ Utilizado em definir diversos tipos para os aviıes, pylons e posiÁıes de voo. Permite que estes tipos sejam totalmente din‚micos, podendo adicionar-se novos sem a necessidade de modificar o cÛdigo existente.<return>
 
-## Casos de teste
+### Diagramas UML
+
+#### Classes
+![Classes](/images/UML.bmp)
+
+#### Casos de utiliza√ß√£o
+![casos](/images/use_case.bmp)
+
+#### Diagrama de estados
+![estados](/images/state.bmp)
+
+### Padr√µes de jogo:
+* **Keep 'em Separated** - Baseado na estrutura do jogo Asteroids fornecido. Permite separar os componentes do jogo e implementar uma arquitetura MVC. <return>
+* **One to rule them All** - Presente na classe RedBullGame, Game Controller,Game Model e Game View, de modo a numa inst√¢ncia juntar todos os objetos de cada componente do jogo.<return>
+* **Observer** - Implementado entre o avi√£o e o pylon. Permite ao pylon notificar o avi√£o que ocorreu uma colis√£o, desencadeando uma a√ß√£o em ambos os objetos.<return>
+* **Reuse, restore, recycle** -  Os pylons ser√£o gerados com recurso √† classe pool fornecida pelo LibGDX, evitando assim a constante aloca√ß√£o e destrui√ß√£o de objetos em mem√≥ria √† medida que se avan√ßa no n√≠vel de jogo, aumentando a efici√™ncia e performance.<return>
+* **Be Different** - Utilizado em definir diversos tipos para os avi√£es, pylons e posi√ß√µes de voo. Permite que estes tipos sejam totalmente din√¢micos, podendo adicionar-se novos sem a necessidade de modificar o c√≥digo existente.<return>
+
+### Mockups
+
+Menu Principal | HighScores | Regras do Jogo
+---------------|------------|---------------
+![menu_principal](/images/main_menu.png)|![highscores](/images/highscores.png)|![Regras](/images/rules.png)
+
+Escolher Avi√£o | Jogo | Game Over
+---------------|------|----------
+![choose_plane](/images/choose_plane.png)|![game](/images/game.png)|![game_over](/images/game_over.png)
+
+Submeter HighScore |
+-------------------|
+![submit_highscore](/images/submit_highscore.png)|
+
+### Casos de teste
 * VelocidadeAdequada
 * ImpulsoAoToque
 * ColisaoComPylon
@@ -17,15 +46,3 @@ Red Bull Air race game based on flappy bird!
 * Pontuacao
 * VerificacaoHighscore
 * EscolhaDeAviao
-
-## Classes
-![Classes](/images/UML.bmp)
-
-## Packages
-![Packages](/images/packages.bmp) <------ mudar
-
-## Casos de utilizaÁ„o
-![casos](/images/use_case.bmp)
-
-## Diagrama de estados
-![estados](/images/state.bmp)
