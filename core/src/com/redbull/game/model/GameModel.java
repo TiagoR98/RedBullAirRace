@@ -1,9 +1,15 @@
 package com.redbull.game.model;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Texture;
 import com.redbull.game.model.Entities.BackgroundModel;
+import com.redbull.game.view.GameView;
+import com.redbull.game.RedBullGame;
 
 public class GameModel {
     private BackgroundModel background;
+    private BackgroundModel background2;
+
 
     private static GameModel instance;
 
@@ -15,16 +21,22 @@ public class GameModel {
     }
 
     private GameModel(){
-        background = new BackgroundModel(50,50,0);
+        background = new BackgroundModel();
+        background2 = new BackgroundModel();
     }
 
     public BackgroundModel getBackground() {
         return background;
     }
+    public BackgroundModel getBackground2() {
+        return background2;
+    }
 
     public void update(float delta){
-        background.setPosition(background.getX()+10, background.getY());
+
+
     }
+
 
 
 }
