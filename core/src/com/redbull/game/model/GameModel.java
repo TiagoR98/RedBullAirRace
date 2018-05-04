@@ -1,14 +1,10 @@
 package com.redbull.game.model;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Texture;
-import com.redbull.game.model.Entities.BackgroundModel;
-import com.redbull.game.view.GameView;
-import com.redbull.game.RedBullGame;
+import com.redbull.game.model.Entities.PylonModel;
+import com.badlogic.gdx.utils.Pool;
+import java.util.*;
 
 public class GameModel {
-    private BackgroundModel background;
-    private BackgroundModel background2;
 
 
     private static GameModel instance;
@@ -20,19 +16,29 @@ public class GameModel {
         return instance;
     }
 
+    Pool<PylonModel> pylonPool = new Pool<PylonModel>() {
+        @Override
+        protected PylonModel newObject() {
+            return new PylonModel();
+        }
+    };
+
+    ArrayList<PylonModel> Pylons;
+
     private GameModel(){
-        background = new BackgroundModel();
-        background2 = new BackgroundModel();
+    PylonModel pyl = pylonPool.obtain();
+    Pylons.add(pyl);
     }
 
-    public BackgroundModel getBackground() {
-        return background;
-    }
-    public BackgroundModel getBackground2() {
-        return background2;
+
+
+    public Pool<PylonModel> getPylonPool() {
+        return pylonPool;
     }
 
     public void update(float delta){
+
+    //fazer update do vetor de pylons a das respetivas posicoes
 
 
     }
