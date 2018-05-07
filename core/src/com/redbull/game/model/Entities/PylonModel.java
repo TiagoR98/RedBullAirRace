@@ -1,11 +1,24 @@
 package com.redbull.game.model.Entities;
 
 import com.badlogic.gdx.Gdx;
+import com.redbull.game.PylonTypes.PylonType;
+
 
 public class PylonModel extends EntityModel{
 
-    public PylonModel(){
-        super(Gdx.graphics.getWidth(), 0, 0);
+    private PylonType pylonType;
+
+    public PylonModel(int screenMargin,PylonType type){
+        super(Gdx.graphics.getWidth() + screenMargin, 0, 0);
+        pylonType = type;
+        }
+
+    public PylonType getPylonType() {
+        return pylonType;
+    }
+
+    public void update(float velocity){
+        this.setX(this.getX()-velocity);
     }
 
 }

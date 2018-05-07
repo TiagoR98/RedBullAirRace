@@ -6,8 +6,15 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.redbull.game.PylonTypes.KnifePylon;
+import com.redbull.game.PylonTypes.NormalPylon;
+import com.redbull.game.PylonTypes.PylonType;
 import com.redbull.game.view.GameView;
 import com.badlogic.gdx.Game;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class RedBullGame extends Game {
 	SpriteBatch batch;
@@ -16,11 +23,22 @@ public class RedBullGame extends Game {
 	Sprite backSprite;
 	private AssetManager assetManager;
 
-	@Override
+
+
+
+
+
+
+    @Override
 	public void create () {
 		batch = new SpriteBatch();
 		assetManager = new AssetManager();
+
+
+
 		startGame();
+
+
 	}
 
 	int x = 0;

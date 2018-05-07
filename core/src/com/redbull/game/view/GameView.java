@@ -6,6 +6,12 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.redbull.game.RedBullGame;
 import com.badlogic.gdx.graphics.Texture;
 import com.redbull.game.controller.GameController;
+import com.redbull.game.model.Entities.PylonModel;
+import com.redbull.game.model.GameModel;
+import com.redbull.game.view.Entities.EntityView;
+import com.redbull.game.view.Entities.PylonView;
+
+import java.util.ArrayList;
 
 public class GameView extends ScreenAdapter {
 
@@ -36,8 +42,18 @@ BitmapFont font = new BitmapFont();
     public void render (float delta) {
         GameController.getInstance().update(delta);
 
+        System.out.print("Fuck JAS");
+
         game.getBatch().begin();
         drawBackground(4);
+
+        ArrayList<PylonModel> pylons = GameModel.getInstance().getPylons();
+        for(PylonModel pylon : pylons){
+            PylonView view = new PylonView(game,pylon.getPylonType());
+            view.update(pylon);
+            view.draw(game.getBatch());
+        }
+
         game.getBatch().end();
 
     }
