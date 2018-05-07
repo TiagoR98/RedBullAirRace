@@ -9,7 +9,7 @@ public class PylonModel extends EntityModel{
     private PylonType pylonType;
 
     public PylonModel(int screenMargin,PylonType type){
-        super(Gdx.graphics.getWidth() + screenMargin, 0, 0);
+        super(Gdx.graphics.getWidth() + screenMargin, Gdx.graphics.getHeight()/3, 0);
         pylonType = type;
         }
 
