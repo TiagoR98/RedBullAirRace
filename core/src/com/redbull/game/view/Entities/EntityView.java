@@ -27,7 +27,7 @@ public abstract class EntityView {
     }
 
     public void update(EntityModel model){
-        sprite.setCenter(model.getX(), model.getY());
+        sprite.setPosition(model.getX(), model.getY());
         sprite.setRotation((float) Math.toDegrees(model.getRotation()));
     }
 }

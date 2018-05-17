@@ -24,8 +24,20 @@ public class GameView extends ScreenAdapter {
     }
 
     private void loadAssets(){
-    this.game.getAssetManager().load("pylon.png", Texture.class);
-    this.game.getAssetManager().load("pylonknife.png", Texture.class);
+        this.game.getAssetManager().load("p1v.png", Texture.class);
+        this.game.getAssetManager().load("p2v.png", Texture.class);
+        this.game.getAssetManager().load("p3v.png", Texture.class);
+        this.game.getAssetManager().load("p4v.png", Texture.class);
+        this.game.getAssetManager().load("p5v.png", Texture.class);
+        this.game.getAssetManager().load("p6v.png", Texture.class);
+        this.game.getAssetManager().load("p1a.png", Texture.class);
+        this.game.getAssetManager().load("p2a.png", Texture.class);
+        this.game.getAssetManager().load("p3a.png", Texture.class);
+        this.game.getAssetManager().load("p4a.png", Texture.class);
+        this.game.getAssetManager().load("p5a.png", Texture.class);
+        this.game.getAssetManager().load("p6a.png", Texture.class);
+
+
     this.game.getAssetManager().load("backg.png", Texture.class);
     this.game.getAssetManager().finishLoading();
 
@@ -46,6 +58,7 @@ BitmapFont font = new BitmapFont();
 
         game.getBatch().begin();
         drawBackground(4);
+
 
         ArrayList<PylonModel> pylons = GameModel.getInstance().getPylons();
         for(PylonModel pylon : pylons){
