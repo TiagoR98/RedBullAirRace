@@ -3,7 +3,7 @@ package com.redbull.game.model;
 import com.badlogic.gdx.Gdx;
 import com.redbull.game.PylonTypes.*;
 import com.redbull.game.PylonTypes.PylonType;
-import com.redbull.game.RedBullGame;
+import com.redbull.game.model.Entities.PlaneModel;
 import com.redbull.game.model.Entities.PylonModel;
 import com.badlogic.gdx.utils.Pool;
 
@@ -16,8 +16,11 @@ public class GameModel {
     private static GameModel instance;
     private ArrayList<PylonType> pylonTypes;
 
-    private void createPylonTypes(){
+    private PlaneModel challengerPlane, masterPlane;
 
+
+
+    private void createPylonTypes(){
 
         PylonType p1v = new P1v();
         PylonType p2v = new P2v();
@@ -65,13 +68,13 @@ public class GameModel {
     private final int realHeight = 100;
     private final int pylonSize = 90;
 
-    ArrayList<PylonModel>  Pylons;
+    ArrayList<PylonModel> pylons;
 
     private GameModel(){
         pylonTypes = new ArrayList<PylonType>();
         createPylonTypes();
 
-        Pylons = new ArrayList<PylonModel>();
+        pylons = new ArrayList<PylonModel>();
         pylonPool = new Pool<PylonModel>() {
             @Override
             protected PylonModel newObject() {
@@ -81,7 +84,18 @@ public class GameModel {
         };
 
         PylonModel pyl = pylonPool.obtain();
-        Pylons.add(pyl);
+        pylons.add(pyl);
+
+        //challengerPlane = new PlaneModel(2);
+
+        ArrayList<String> listMaster = new ArrayList<String>();
+            listMaster.add("master2.png");
+            listMaster.add("master3.png");
+            listMaster.add("master4.png");
+            listMaster.add("master5.png");
+            listMaster.add("master6.png");
+
+        masterPlane = new PlaneModel(5, "master1.png",listMaster,"master7.png");
     }
 
     public int getPylonTextureHeight(){
@@ -97,22 +111,22 @@ public class GameModel {
     }
 
     public ArrayList<PylonModel> getPylons() {
-        return Pylons;
+        return pylons;
     }
 
     public void update(float delta){
-        float velocity = 6;
+        float velocity = this.getActivePlane().getVelocity();
     //distancia entre pylons
-    if(Pylons.get(Pylons.size() - 1).getX()<= Gdx.graphics.getWidth()-distancePylons){
-        Pylons.add(pylonPool.obtain());
+    if(pylons.get(pylons.size() - 1).getX()<= Gdx.graphics.getWidth()-distancePylons){
+        pylons.add(pylonPool.obtain());
     }
 
     //elimina pylons sai ecra
-    if(Pylons.get(0).getX()< 0 - screenMargin){
-        Pylons.remove(0);
+    if(pylons.get(0).getX()< 0 - screenMargin){
+        pylons.remove(0);
     }
 
-    for(PylonModel temp : Pylons)
+    for(PylonModel temp : pylons)
         temp.update(velocity);
     }
 
@@ -120,6 +134,9 @@ public class GameModel {
         return meters*Gdx.graphics.getHeight()/realHeight;
     }
 
+    public PlaneModel getActivePlane(){
+        return masterPlane;
+    }
 
 }
 

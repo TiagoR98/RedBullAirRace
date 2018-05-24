@@ -41,5 +41,4 @@ public abstract class EntityModel {
         this.y = y;
     }
 
-
 }
