@@ -11,6 +11,7 @@ public class PlaneModel extends EntityModel {
     private String textNormal;
     private ArrayList<String> intTextures;
     private String textKnife;
+    private float rotation=0;
 
 
    public PlaneModel(int velocity, String textNormal, ArrayList<String> intTextures, String textKnife){
@@ -26,6 +27,11 @@ public class PlaneModel extends EntityModel {
     }
     public boolean getIsKnife(){
        return isKnife;
+    }
+
+    @Override
+    public void setRotation(float rotation) {
+        this.rotation = rotation;
     }
 
     private void incrementAnimation(){
