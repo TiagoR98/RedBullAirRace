@@ -1,6 +1,7 @@
 package com.redbull.game.controller;
 
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
@@ -21,6 +22,7 @@ import static java.lang.Math.sin;
 import com.redbull.game.RedBullGame;
 import com.redbull.game.controller.Entities.PlaneBody;
 import com.redbull.game.model.Entities.EntityModel;
+import com.redbull.game.model.Entities.PlaneModel;
 import com.redbull.game.model.GameModel;
 
 public class GameController implements ContactListener{
@@ -33,13 +35,12 @@ public class GameController implements ContactListener{
 
     public static GameController instance;
 
-    public final static float PIXEL_TO_METER = 40f;
-
-
+    public final static float METER_TO_PIXEL_V = Gdx.graphics.getHeight()/GameModel.getInstance().ARENA_HEIGHT;
+    public final static float METER_TO_PIXEL_H = Gdx.graphics.getWidth()/GameModel.getInstance().ARENA_WIDTH;
 
 
     private GameController(){
-        world = new World(new Vector2(0, -120f), true);
+        world = new World(new Vector2(0, -30f), true);
 
         planeBody = new PlaneBody(world, GameModel.getInstance().getActivePlane());
 
@@ -63,7 +64,7 @@ public class GameController implements ContactListener{
 
         for (Body body : bodies) {
             ((EntityModel) body.getUserData()).setPosition(body.getPosition().x, body.getPosition().y);
-            ((EntityModel) body.getUserData()).setRotation(body.getAngle());
+                ((EntityModel)body.getUserData()).setRotation(body.getLinearVelocity().y);
         }
 
         float frameTime = Math.min(delta, 0.25f);
@@ -97,8 +98,21 @@ public class GameController implements ContactListener{
     }
 
     public void jump(float delta){
-        //planeBody.getBody().applyLinearImpulse(0,100000,planeBody.getBody().getPosition().x,planeBody.getBody().getPosition().y,true);
-    planeBody.getBody().setLinearVelocity(0,120);
+        //planeBody.getBody().applyLinearImpulse(0,10, planeBody.getBody().getPosition().x, planeBody.getBody().getPosition().y,true);
+
+       if(planeBody.getBody().getLinearVelocity().y<30)
+         planeBody.getBody().setLinearVelocity(0,planeBody.getBody().getLinearVelocity().y + 3);
+       else
+           planeBody.getBody().setLinearVelocity(0,30);
+       // if(((PlaneModel)planeBody.getUserData()).getRotation()<30)
+         //   ((PlaneModel)planeBody.getUserData()).setRotation(((PlaneModel)planeBody.getUserData()).getRotation()+4);
+        //else
+          //  ((PlaneModel)planeBody.getUserData()).setRotation(30);
+        //if(planeBody.getBody().getAngle()*180/Math.PI>=20)
+          //  planeBody.getBody().setAngularVelocity(0f);
+        //System.out.println(planeBody.getBody().getAngle());
+      //  if(planeBody.getBody().getLinearVelocity().y < 50)
+        //planeBody.getBody().setLinearVelocity(0,40+planeBody.getBody().getLinearVelocity().y);
     }
 
     public World getWorld() {

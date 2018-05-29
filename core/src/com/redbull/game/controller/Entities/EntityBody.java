@@ -15,7 +15,6 @@ public abstract class EntityBody {
         bodyDef.type = BodyDef.BodyType.DynamicBody;
         bodyDef.position.set(model.getX(),model.getY());
         bodyDef.angle = model.getRotation();
-        bodyDef.linearDamping = 0.01f;
 
         body = world.createBody(bodyDef);
         body.setUserData(model);

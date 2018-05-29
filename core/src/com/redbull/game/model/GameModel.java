@@ -17,7 +17,8 @@ public class GameModel {
     private ArrayList<PylonType> pylonTypes;
 
     private PlaneModel challengerPlane, masterPlane;
-
+    public final int ARENA_HEIGHT=100;
+    public final int ARENA_WIDTH=50;
 
 
     private void createPylonTypes(){

@@ -6,5 +6,6 @@ public class P4a extends PylonType {
     public P4a(){
         super("p4a.png");
         setNeedsKnife(true);
+        setHighestPoint(78.26f);
     }
 }

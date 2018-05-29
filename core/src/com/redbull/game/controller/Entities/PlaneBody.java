@@ -12,7 +12,7 @@ public class PlaneBody extends EntityBody {
     public PlaneBody(World world, PlaneModel model) {
         super(world, model);
 
-        float density = 1f, friction = 0f, restitution = 0.0f;
+        float density = 0f, friction = 0f, restitution = 0.0f;
         int width = Gdx.graphics.getWidth() / 3, height = Gdx.graphics.getWidth() / 15;
 
         PolygonShape rect = new PolygonShape();
@@ -26,7 +26,8 @@ public class PlaneBody extends EntityBody {
 
 
         this.body.createFixture(fixtureDef);
-
+        //this.body.applyForce(0,30,this.getBody().getPosition().x,this.getBody().getPosition().y,true);
+    this.body.setAwake(false);
         rect.dispose();
     }
 

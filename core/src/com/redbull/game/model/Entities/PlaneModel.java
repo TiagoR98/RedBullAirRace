@@ -15,7 +15,7 @@ public class PlaneModel extends EntityModel {
 
 
    public PlaneModel(int velocity, String textNormal, ArrayList<String> intTextures, String textKnife){
-       super(Gdx.graphics.getWidth()/4, Gdx.graphics.getHeight()/2, 0);
+       super(20, 50, 0);
        this.velocity = velocity;
        this.intTextures = intTextures;
        this.textNormal = textNormal;
@@ -32,6 +32,12 @@ public class PlaneModel extends EntityModel {
     @Override
     public void setRotation(float rotation) {
         this.rotation = rotation;
+    }
+
+    @Override
+    public float getRotation() {
+       System.out.println(this.rotation);
+        return this.rotation;
     }
 
     private void incrementAnimation(){

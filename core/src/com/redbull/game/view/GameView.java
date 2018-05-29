@@ -3,10 +3,13 @@ package com.redbull.game.view;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
+import com.redbull.game.PylonTypes.PylonType;
 import com.redbull.game.RedBullGame;
 import com.badlogic.gdx.graphics.Texture;
 import com.redbull.game.controller.GameController;
@@ -28,24 +31,20 @@ public class GameView extends ScreenAdapter {
 
     private Box2DDebugRenderer debugRenderer;
 
-    /**
-     * The transformation matrix used to transform meters into
-     * pixels in order to show fixtures in their correct places.
-     */
     private Matrix4 debugMatrix;
 
-    public final static float PIXEL_TO_METER = 0.04f;
+    private boolean gameOver = false;
 
-    /**
-     * The width of the viewport in meters. The height is
-     * automatically calculated using the screen ratio.
-     */
-    private static final float VIEWPORT_WIDTH = 30;
+    public final static float METER_TO_PIXEL_V = Gdx.graphics.getHeight()/GameModel.getInstance().ARENA_HEIGHT;
+    public final static float METER_TO_PIXEL_H = Gdx.graphics.getWidth()/GameModel.getInstance().ARENA_WIDTH;
+
+
 
     private OrthographicCamera camera;
-
+    ShapeRenderer shapeRenderer;
 
     public GameView(RedBullGame game){
+        shapeRenderer = new ShapeRenderer();
         this.game = game;
         loadAssets();
 
@@ -93,6 +92,7 @@ BitmapFont font = new BitmapFont();
     int x1=0;
     @Override
     public void render (float delta) {
+        if(!gameOver){
         GameController.getInstance().update(delta);
 
         System.out.print("Fuck JAS");
@@ -105,23 +105,43 @@ BitmapFont font = new BitmapFont();
 
         PlaneModel plane = GameModel.getInstance().getActivePlane();
         Sprite pSprite = new PlaneView(game).createSprite(game);
-        pSprite.setOriginCenter();
         pSprite.setSize(Gdx.graphics.getWidth()/3,Gdx.graphics.getWidth()/3);
-        pSprite.setPosition((plane.getX()-pSprite.getWidth()/2),plane.getY()-pSprite.getHeight()/2);
+        pSprite.setOriginCenter();
+        pSprite.setPosition(((plane.getX()*METER_TO_PIXEL_H)-pSprite.getWidth()/2),(plane.getY()*METER_TO_PIXEL_V)-pSprite.getHeight()/2);
         pSprite.setRotation(plane.getRotation());
         pSprite.draw(game.getBatch());
 
         ArrayList<PylonModel> pylons = GameModel.getInstance().getPylons();
-        for(PylonModel pylon : pylons){
-            PylonView view = new PylonView(game,pylon.getPylonType());
-            view.update(pylon);
-            view.draw(game.getBatch());
+        for(PylonModel pylon : pylons) {
+            Sprite pylonSprite = new PylonView(game, pylon.getPylonType()).createSprite(game);
+            pylonSprite.setPosition(pylon.getX(), pylon.getY());
+            float scaleFactor = (float) ((Gdx.graphics.getHeight() * 0.9) / pylonSprite.getHeight());
+            pylonSprite.setSize(pylonSprite.getWidth() * scaleFactor, pylonSprite.getHeight() * scaleFactor);
+            System.out.println(scaleFactor);
+            pylonSprite.draw(game.getBatch());
+
+            if (pylon.getX() == plane.getX())
+                if (checkPylonPassage(pylon, plane) == -1) {
+                    gameOver = true;
+                }else{
+                    game.scored();
+                }
         }
 
+
+
+
+        game.getFont().draw(game.getBatch(), Integer.toString(game.getScore()), 10*METER_TO_PIXEL_H, 90*METER_TO_PIXEL_V);
         game.getBatch().end();
         debugRenderer.render(GameController.getInstance().getWorld(), debugMatrix);
 
         handleInputs(delta);
+
+        }else{
+            game.getBatch().begin();
+            game.getFont().draw(game.getBatch(), "Fuck JAS", Gdx.graphics.getWidth()/4, Gdx.graphics.getHeight()/4,500,1,true);
+            game.getBatch().end();
+        }
 
     }
 
@@ -145,5 +165,12 @@ BitmapFont font = new BitmapFont();
         if (Gdx.input.isTouched()) {
             GameController.getInstance().jump(delta);
         }
+    }
+
+    private int checkPylonPassage(PylonModel pylon,PlaneModel plane){
+     if(plane.getY() > pylon.getPylonType().getHighestPoint() || plane.getY() < pylon.getPylonType().getHighestPoint()- PylonType.getPassingZone())
+         return -1;
+     else
+         return 0;
     }
 }

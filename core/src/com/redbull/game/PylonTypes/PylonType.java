@@ -4,20 +4,20 @@ import com.badlogic.gdx.graphics.Texture;
 import com.redbull.game.RedBullGame;
 
 public abstract class PylonType {
-    private int highestPoint;
+    private float highestPoint;
     private boolean needsKnife;
-    private int passingZone;
     private String pylonTexture;
+    private static final float passingZone = 29.75f;
 
     public PylonType(String texture){
         pylonTexture=texture;
     }
 
-    public int getHighestPoint() {
+    public float getHighestPoint() {
         return highestPoint;
     }
 
-    public int getPassingZone() {
+    public static float getPassingZone() {
         return passingZone;
     }
 
@@ -29,16 +29,12 @@ public abstract class PylonType {
         return needsKnife;
     }
 
-    public void setHighestPoint(int highestPoint) {
+    public void setHighestPoint(float highestPoint) {
         this.highestPoint = highestPoint;
     }
 
     public void setNeedsKnife(boolean needsKnife) {
         this.needsKnife = needsKnife;
-    }
-
-    public void setPassingZone(int passingZone) {
-        this.passingZone = passingZone;
     }
 
     public void setPylonTexture(String pylonTexture) {

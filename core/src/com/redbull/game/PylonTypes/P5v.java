@@ -4,5 +4,6 @@ public class P5v extends PylonType {
     public P5v(){
         super("p5v.png");
         setNeedsKnife(false);
+        setHighestPoint(93.18f);
     }
 }

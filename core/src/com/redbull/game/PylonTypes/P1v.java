@@ -7,5 +7,6 @@ public class P1v extends PylonType {
     public P1v(){
         super("p1v.png");
         setNeedsKnife(false);
+        setHighestPoint(46.88f);
     }
 }

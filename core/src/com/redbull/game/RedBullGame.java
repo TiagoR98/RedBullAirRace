@@ -2,8 +2,10 @@ package com.redbull.game;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.redbull.game.PylonTypes.*;
@@ -21,19 +23,15 @@ public class RedBullGame extends Game {
 	Texture back;
 	Sprite backSprite;
 	private AssetManager assetManager;
-
-
-
-
-
-
+	private BitmapFont font;
 
     @Override
 	public void create () {
 		batch = new SpriteBatch();
 		assetManager = new AssetManager();
 
-
+		font = new BitmapFont();
+		font.setColor(Color.RED);
 
 		startGame();
 
@@ -42,6 +40,7 @@ public class RedBullGame extends Game {
 
 	int x = 0;
 	int y = 0;
+	int score = 0;
 
 	
 	@Override
@@ -58,7 +57,19 @@ public class RedBullGame extends Game {
 		return batch;
 	}
 
-	public void startGame(){
+	public BitmapFont getFont() {
+		return font;
+	}
+
+    public int getScore() {
+        return score;
+    }
+
+    public void startGame(){
 		setScreen(new GameView(this));
 	}
+
+	public void scored(){this.score++;}
+
+	public void endGame(){this.pause();}
 }
