@@ -36,7 +36,6 @@ public class PlaneModel extends EntityModel {
 
     @Override
     public float getRotation() {
-       System.out.println(this.rotation);
         return this.rotation;
     }
 

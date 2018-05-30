@@ -6,6 +6,8 @@ import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.GlyphLayout;
+import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
@@ -33,12 +35,15 @@ public class GameView extends ScreenAdapter {
 
     private Matrix4 debugMatrix;
 
+    FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("The Outbox St.ttf"));
+    FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
+
     private boolean gameOver = false;
 
     public final static float METER_TO_PIXEL_V = Gdx.graphics.getHeight()/GameModel.getInstance().ARENA_HEIGHT;
     public final static float METER_TO_PIXEL_H = Gdx.graphics.getWidth()/GameModel.getInstance().ARENA_WIDTH;
 
-
+    BitmapFont font;
 
     private OrthographicCamera camera;
     ShapeRenderer shapeRenderer;
@@ -48,9 +53,17 @@ public class GameView extends ScreenAdapter {
         this.game = game;
         loadAssets();
 
+        parameter.size = 120;
+
+        //font = new BitmapFont(Gdx.files.internal("outbox_branco.fnt"));
+        font=generator.generateFont(parameter);
+
         debugRenderer = new Box2DDebugRenderer();
         camera = new OrthographicCamera(Gdx.graphics.getWidth(),Gdx.graphics.
                 getHeight());
+
+
+
 
     }
 
@@ -86,7 +99,7 @@ public class GameView extends ScreenAdapter {
     x2 = -txt.getWidth();
     }
 
-BitmapFont font = new BitmapFont();
+
 
     int y = 0;
     int x1=0;
@@ -95,7 +108,7 @@ BitmapFont font = new BitmapFont();
         if(!gameOver){
         GameController.getInstance().update(delta);
 
-        System.out.print("Fuck JAS");
+        //System.out.print("Fuck JAS");
 
         debugMatrix = game.getBatch().getProjectionMatrix().cpy().scale(1,
                 1, 0);
@@ -117,21 +130,22 @@ BitmapFont font = new BitmapFont();
             pylonSprite.setPosition(pylon.getX(), pylon.getY());
             float scaleFactor = (float) ((Gdx.graphics.getHeight() * 0.9) / pylonSprite.getHeight());
             pylonSprite.setSize(pylonSprite.getWidth() * scaleFactor, pylonSprite.getHeight() * scaleFactor);
-            System.out.println(scaleFactor);
             pylonSprite.draw(game.getBatch());
 
-            if (pylon.getX() == plane.getX())
+
+            if (((pylonSprite.getX()+pylonSprite.getWidth()/2) <= plane.getX()*METER_TO_PIXEL_H) &&
+                    ((pylonSprite.getX()+pylonSprite.getWidth()/2) >= plane.getX()*METER_TO_PIXEL_H - plane.getVelocity()))
                 if (checkPylonPassage(pylon, plane) == -1) {
                     gameOver = true;
                 }else{
                     game.scored();
                 }
-        }
+            }
 
+            final GlyphLayout layout = new GlyphLayout(font, Integer.toString(game.getScore()));
 
-
-
-        game.getFont().draw(game.getBatch(), Integer.toString(game.getScore()), 10*METER_TO_PIXEL_H, 90*METER_TO_PIXEL_V);
+            //font.draw(game.getBatch(), "Fuck JAS", plane.getX()*METER_TO_PIXEL_H,plane.getY()*METER_TO_PIXEL_V);
+        //font.draw(game.getBatch(), Integer.toString(game.getScore()), (float) (Gdx.graphics.getWidth() / 2) - (layout.width / 2)), (float) (Gdx.graphics.getHeight()*0.9));
         game.getBatch().end();
         debugRenderer.render(GameController.getInstance().getWorld(), debugMatrix);
 
@@ -139,7 +153,7 @@ BitmapFont font = new BitmapFont();
 
         }else{
             game.getBatch().begin();
-            game.getFont().draw(game.getBatch(), "Fuck JAS", Gdx.graphics.getWidth()/4, Gdx.graphics.getHeight()/4,500,1,true);
+            font.draw(game.getBatch(), "Fuck JAS", Gdx.graphics.getWidth()/4, Gdx.graphics.getHeight()/4);
             game.getBatch().end();
         }
 

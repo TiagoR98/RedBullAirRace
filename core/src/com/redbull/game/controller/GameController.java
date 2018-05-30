@@ -73,7 +73,6 @@ public class GameController implements ContactListener{
             world.step(1/60f, 60, 20);
             accumulator -= 1/60f;
         }
-        System.out.println(planeBody.getBody().getLinearVelocity().y);
 
     }
 
