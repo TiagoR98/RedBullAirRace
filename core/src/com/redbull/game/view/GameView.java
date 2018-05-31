@@ -72,6 +72,31 @@ public class GameView extends ScreenAdapter {
                 getHeight());
 
 
+        Gdx.input.setInputProcessor(new SimpleDirectionGestureDetector(new SimpleDirectionGestureDetector.DirectionListener() {
+
+            @Override
+            public void onUp() {
+                // TODO Auto-generated method stub
+            }
+
+            @Override
+            public void onRight() {
+                // TODO Auto-generated method stub
+
+            }
+
+            @Override
+            public void onLeft() {
+                // TODO Auto-generated method stub
+
+            }
+
+            @Override
+            public void onDown() {
+                GameModel.getInstance().getActivePlane().Swipe();
+
+            }
+        }));
 
 
     }
@@ -210,6 +235,7 @@ public class GameView extends ScreenAdapter {
             touched = true;
             GameController.getInstance().jump(delta);
         }
+
     }
 
     private int checkPylonPassage(PylonModel pylon,PlaneModel plane){
