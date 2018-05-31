@@ -107,7 +107,7 @@ public class GameController implements ContactListener{
     if(GameModel.getInstance().getActivePlane().getIsKnife()){
         if (planeBody.getBody().getLinearVelocity().y < 1)
             planeBody.getBody().setLinearVelocity(0, planeBody.getBody().getLinearVelocity().y + 1);
-        else
+        else if (planeBody.getBody().getLinearVelocity().y == 1)
             planeBody.getBody().setLinearVelocity(0, 1);
     }else {
         if (planeBody.getBody().getLinearVelocity().y < 30)
