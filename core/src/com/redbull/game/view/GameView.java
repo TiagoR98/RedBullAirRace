@@ -39,6 +39,7 @@ public class GameView extends ScreenAdapter {
     FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
 
     private boolean gameOver = false;
+    private boolean touched = false;
 
     public final static float METER_TO_PIXEL_V = Gdx.graphics.getHeight()/GameModel.getInstance().ARENA_HEIGHT;
     public final static float METER_TO_PIXEL_H = Gdx.graphics.getWidth()/GameModel.getInstance().ARENA_WIDTH;
@@ -110,7 +111,9 @@ public class GameView extends ScreenAdapter {
     @Override
     public void render (float delta) {
         if(!gameOver){
-        GameController.getInstance().update(delta);
+            if(touched)
+                GameController.getInstance().update(delta);
+
 
         //System.out.print("Fuck JAS");
 
@@ -145,6 +148,9 @@ public class GameView extends ScreenAdapter {
                     game.scored();
                 }
             }
+
+        if(plane.getX()<=0)
+            gameOver = true;
 
             layout = new GlyphLayout(font, Integer.toString(game.getScore()));
 
@@ -182,6 +188,7 @@ public class GameView extends ScreenAdapter {
     private void handleInputs(float delta) {
 
         if (Gdx.input.isTouched()) {
+            touched = true;
             GameController.getInstance().jump(delta);
         }
     }
