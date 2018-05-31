@@ -239,9 +239,9 @@ public class GameView extends ScreenAdapter {
     }
 
     private int checkPylonPassage(PylonModel pylon,PlaneModel plane){
-     if(plane.getY() > pylon.getPylonType().getHighestPoint() || plane.getY() < pylon.getPylonType().getHighestPoint()- PylonType.getPassingZone())
-         return -1;
-     else
+     if(plane.getY() < pylon.getPylonType().getHighestPoint() && plane.getY() > pylon.getPylonType().getHighestPoint()- PylonType.getPassingZone() && pylon.getPylonType().getneedsKnife() == plane.getIsKnife())
          return 0;
+     else
+         return -1;
     }
 }

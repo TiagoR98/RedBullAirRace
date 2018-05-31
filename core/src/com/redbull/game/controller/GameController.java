@@ -104,11 +104,17 @@ public class GameController implements ContactListener{
 
     public void jump(float delta){
         //planeBody.getBody().applyLinearImpulse(0,10, planeBody.getBody().getPosition().x, planeBody.getBody().getPosition().y,true);
-
-       if(planeBody.getBody().getLinearVelocity().y<30)
-         planeBody.getBody().setLinearVelocity(0,planeBody.getBody().getLinearVelocity().y + 3);
-       else
-           planeBody.getBody().setLinearVelocity(0,30);
+    if(GameModel.getInstance().getActivePlane().getIsKnife()){
+        if (planeBody.getBody().getLinearVelocity().y < 1)
+            planeBody.getBody().setLinearVelocity(0, planeBody.getBody().getLinearVelocity().y + 1);
+        else
+            planeBody.getBody().setLinearVelocity(0, 1);
+    }else {
+        if (planeBody.getBody().getLinearVelocity().y < 30)
+            planeBody.getBody().setLinearVelocity(0, planeBody.getBody().getLinearVelocity().y + 3);
+        else
+            planeBody.getBody().setLinearVelocity(0, 30);
+    }
        // if(((PlaneModel)planeBody.getUserData()).getRotation()<30)
          //   ((PlaneModel)planeBody.getUserData()).setRotation(((PlaneModel)planeBody.getUserData()).getRotation()+4);
         //else
