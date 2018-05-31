@@ -43,7 +43,9 @@ public class GameView extends ScreenAdapter {
     public final static float METER_TO_PIXEL_V = Gdx.graphics.getHeight()/GameModel.getInstance().ARENA_HEIGHT;
     public final static float METER_TO_PIXEL_H = Gdx.graphics.getWidth()/GameModel.getInstance().ARENA_WIDTH;
 
+
     BitmapFont font;
+    GlyphLayout layout;
 
     private OrthographicCamera camera;
     ShapeRenderer shapeRenderer;
@@ -54,6 +56,8 @@ public class GameView extends ScreenAdapter {
         loadAssets();
 
         parameter.size = 120;
+        parameter.borderWidth = 5;
+        parameter.borderColor = Color.BLACK;
 
         //font = new BitmapFont(Gdx.files.internal("outbox_branco.fnt"));
         font=generator.generateFont(parameter);
@@ -142,10 +146,10 @@ public class GameView extends ScreenAdapter {
                 }
             }
 
-            final GlyphLayout layout = new GlyphLayout(font, Integer.toString(game.getScore()));
+            layout = new GlyphLayout(font, Integer.toString(game.getScore()));
 
-            //font.draw(game.getBatch(), "Fuck JAS", plane.getX()*METER_TO_PIXEL_H,plane.getY()*METER_TO_PIXEL_V);
-        //font.draw(game.getBatch(), Integer.toString(game.getScore()), (float) (Gdx.graphics.getWidth() / 2) - (layout.width / 2)), (float) (Gdx.graphics.getHeight()*0.9));
+        //font.draw(game.getBatch(), "Fuck JAS", plane.getX()*METER_TO_PIXEL_H,plane.getY()*METER_TO_PIXEL_V);
+        font.draw(game.getBatch(), Integer.toString(game.getScore()), ((Gdx.graphics.getWidth() / 2) - (layout.width / 2)), (float) (Gdx.graphics.getHeight()*0.9));
         game.getBatch().end();
         debugRenderer.render(GameController.getInstance().getWorld(), debugMatrix);
 
@@ -153,7 +157,8 @@ public class GameView extends ScreenAdapter {
 
         }else{
             game.getBatch().begin();
-            font.draw(game.getBatch(), "Fuck JAS", Gdx.graphics.getWidth()/4, Gdx.graphics.getHeight()/4);
+            layout = new GlyphLayout(font, "Game Over");
+            font.draw(game.getBatch(), "Game Over", ((Gdx.graphics.getWidth() / 2) - (layout.width / 2)), ((Gdx.graphics.getHeight() / 2) + (layout.height / 2)));
             game.getBatch().end();
         }
 

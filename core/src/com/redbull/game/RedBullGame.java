@@ -12,6 +12,7 @@ import com.redbull.game.PylonTypes.*;
 import com.redbull.game.PylonTypes.PylonType;
 import com.redbull.game.view.GameView;
 import com.badlogic.gdx.Game;
+import com.redbull.game.view.MainMenu;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -67,6 +68,7 @@ public class RedBullGame extends Game {
 
     public void startGame(){
 		setScreen(new GameView(this));
+		//setScreen(new MainMenu());
 	}
 
 	public void scored(){this.score++;}

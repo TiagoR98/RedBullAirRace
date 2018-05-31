@@ -1,4 +1,4 @@
-#Tue May 29 17:50:25 BST 2018
-base.0=D\:\\Ambiente de Trabalho\\LPOO\\RedBullAirRace\\android\\build\\intermediates\\transforms\\dexMerger\\debug\\63
+#Thu May 31 01:15:42 WEST 2018
+base.0=/Users/tiaguinho/GitHub/RedBullAirRace/android/build/intermediates/transforms/dexMerger/debug/88
 path.0=classes.dex
 renamed.0=classes.dex

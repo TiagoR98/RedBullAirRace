@@ -33,7 +33,6 @@
     <orderEntry type="library" exported="" scope="PROVIDED" name="gdx-backend-lwjgl-1.9.8" level="project" />
     <orderEntry type="library" exported="" scope="PROVIDED" name="gdx-platform-1.9.8-natives-desktop" level="project" />
     <orderEntry type="library" exported="" scope="PROVIDED" name="gdx-box2d-platform-1.9.8-natives-desktop" level="project" />
-    <orderEntry type="library" exported="" scope="PROVIDED" name="gdx-box2d-1.9.8" level="project" />
     <orderEntry type="library" exported="" scope="PROVIDED" name="gdx-freetype-1.9.8" level="project" />
     <orderEntry type="library" exported="" scope="PROVIDED" name="gdx-backend-headless-1.9.8" level="project" />
     <orderEntry type="library" exported="" scope="PROVIDED" name="gdx-1.9.8" level="project" />
@@ -54,8 +53,8 @@
     <orderEntry type="library" exported="" scope="RUNTIME" name="gdx-backend-lwjgl-1.9.8" level="project" />
     <orderEntry type="library" exported="" scope="RUNTIME" name="gdx-platform-1.9.8-natives-desktop" level="project" />
     <orderEntry type="library" exported="" scope="RUNTIME" name="gdx-box2d-platform-1.9.8-natives-desktop" level="project" />
-    <orderEntry type="library" exported="" scope="RUNTIME" name="gdx-box2d-1.9.8" level="project" />
     <orderEntry type="library" exported="" scope="RUNTIME" name="gdx-freetype-1.9.8" level="project" />
+    <orderEntry type="library" exported="" scope="RUNTIME" name="gdx-box2d-1.9.8" level="project" />
     <orderEntry type="library" exported="" scope="RUNTIME" name="gdx-backend-headless-1.9.8" level="project" />
     <orderEntry type="library" exported="" scope="RUNTIME" name="gdx-1.9.8" level="project" />
     <orderEntry type="library" exported="" scope="RUNTIME" name="lwjgl_util-2.9.2" level="project" />
@@ -75,7 +74,6 @@
     <orderEntry type="library" exported="" scope="TEST" name="gdx-backend-lwjgl-1.9.8" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="gdx-platform-1.9.8-natives-desktop" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="gdx-box2d-platform-1.9.8-natives-desktop" level="project" />
-    <orderEntry type="library" exported="" scope="TEST" name="gdx-box2d-1.9.8" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="gdx-freetype-1.9.8" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="gdx-backend-headless-1.9.8" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="gdx-1.9.8" level="project" />
@@ -92,6 +90,7 @@
     <orderEntry type="library" exported="" scope="TEST" name="jinput-platform-2.0.5-natives-linux" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="jinput-platform-2.0.5-natives-windows" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="jinput-platform-2.0.5-natives-osx" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="gdx-box2d-1.9.8" level="project" />
     <orderEntry type="library" exported="" name="desktop.desktop-1.0" level="project" />
     <orderEntry type="library" exported="" name="desktop.desktop-1.0" level="project" />
     <orderEntry type="library" exported="" name="desktop.desktop-1.0" level="project" />

@@ -34,17 +34,16 @@
     <orderEntry type="library" exported="" scope="PROVIDED" name="robovm-cocoatouch-2.3.3" level="project" />
     <orderEntry type="library" exported="" scope="PROVIDED" name="gdx-platform-1.9.8-natives-ios" level="project" />
     <orderEntry type="library" exported="" scope="PROVIDED" name="gdx-box2d-platform-1.9.8-natives-ios" level="project" />
-    <orderEntry type="library" exported="" scope="PROVIDED" name="gdx-box2d-1.9.8" level="project" />
     <orderEntry type="library" exported="" scope="PROVIDED" name="gdx-freetype-1.9.8" level="project" />
-    <orderEntry type="library" exported="" scope="PROVIDED" name="gdx-1.9.8" level="project" />
     <orderEntry type="library" exported="" scope="PROVIDED" name="robovm-objc-2.3.3" level="project" />
+    <orderEntry type="library" exported="" scope="PROVIDED" name="gdx-1.9.8" level="project" />
     <orderEntry type="library" exported="" scope="RUNTIME" name="gdx-backend-robovm-1.9.8" level="project" />
     <orderEntry type="library" exported="" scope="RUNTIME" name="robovm-rt-2.3.3" level="project" />
     <orderEntry type="library" exported="" scope="RUNTIME" name="robovm-cocoatouch-2.3.3" level="project" />
     <orderEntry type="library" exported="" scope="RUNTIME" name="gdx-platform-1.9.8-natives-ios" level="project" />
     <orderEntry type="library" exported="" scope="RUNTIME" name="gdx-box2d-platform-1.9.8-natives-ios" level="project" />
-    <orderEntry type="library" exported="" scope="RUNTIME" name="gdx-box2d-1.9.8" level="project" />
     <orderEntry type="library" exported="" scope="RUNTIME" name="gdx-freetype-1.9.8" level="project" />
+    <orderEntry type="library" exported="" scope="RUNTIME" name="gdx-box2d-1.9.8" level="project" />
     <orderEntry type="library" exported="" scope="RUNTIME" name="gdx-1.9.8" level="project" />
     <orderEntry type="library" exported="" scope="RUNTIME" name="robovm-objc-2.3.3" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="gdx-backend-robovm-1.9.8" level="project" />
@@ -52,10 +51,10 @@
     <orderEntry type="library" exported="" scope="TEST" name="robovm-cocoatouch-2.3.3" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="gdx-platform-1.9.8-natives-ios" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="gdx-box2d-platform-1.9.8-natives-ios" level="project" />
-    <orderEntry type="library" exported="" scope="TEST" name="gdx-box2d-1.9.8" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="gdx-freetype-1.9.8" level="project" />
-    <orderEntry type="library" exported="" scope="TEST" name="gdx-1.9.8" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="robovm-objc-2.3.3" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="gdx-1.9.8" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="gdx-box2d-1.9.8" level="project" />
     <orderEntry type="library" exported="" name="ios.ios-1.0" level="project" />
     <orderEntry type="library" exported="" name="ios.ios-1.0" level="project" />
     <orderEntry type="library" exported="" name="ios.ios-1.0" level="project" />
