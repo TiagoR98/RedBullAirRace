@@ -36,13 +36,5 @@
     <orderEntry type="library" exported="" scope="TEST" name="gdx-freetype-1.9.8" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="gdx-box2d-1.9.8" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="gdx-1.9.8" level="project" />
-    <orderEntry type="library" exported="" name="core.core-1.0" level="project" />
-    <orderEntry type="library" exported="" name="core.core-1.0" level="project" />
-    <orderEntry type="library" exported="" name="core.core-1.0" level="project" />
-    <orderEntry type="library" exported="" name="core.core-1.0" level="project" />
-    <orderEntry type="library" exported="" name="core.core-1.0" level="project" />
-    <orderEntry type="library" exported="" name="core.core-1.0" level="project" />
-    <orderEntry type="library" exported="" name="core.core-1.0" level="project" />
-    <orderEntry type="library" exported="" name="core.core-1.0" level="project" />
   </component>
 </module>

@@ -45,7 +45,7 @@ public class GameView extends ScreenAdapter {
     public final static float METER_TO_PIXEL_H = Gdx.graphics.getWidth()/GameModel.getInstance().ARENA_WIDTH;
 
 
-    BitmapFont font;
+    BitmapFont font,fontSmall;
     GlyphLayout layout;
 
     private OrthographicCamera camera;
@@ -60,8 +60,12 @@ public class GameView extends ScreenAdapter {
         parameter.borderWidth = 5;
         parameter.borderColor = Color.BLACK;
 
-        //font = new BitmapFont(Gdx.files.internal("outbox_branco.fnt"));
+        generator.generateFont(parameter);
+
         font=generator.generateFont(parameter);
+
+        parameter.size = 30;
+        fontSmall=generator.generateFont(parameter);
 
         debugRenderer = new Box2DDebugRenderer();
         camera = new OrthographicCamera(Gdx.graphics.getWidth(),Gdx.graphics.
@@ -149,7 +153,7 @@ public class GameView extends ScreenAdapter {
                 }
             }
 
-        if(plane.getX()<=0)
+        if(plane.getY()*METER_TO_PIXEL_V<=0)
             gameOver = true;
 
             layout = new GlyphLayout(font, Integer.toString(game.getScore()));
@@ -163,9 +167,24 @@ public class GameView extends ScreenAdapter {
 
         }else{
             game.getBatch().begin();
+
             layout = new GlyphLayout(font, "Game Over");
             font.draw(game.getBatch(), "Game Over", ((Gdx.graphics.getWidth() / 2) - (layout.width / 2)), ((Gdx.graphics.getHeight() / 2) + (layout.height / 2)));
+
+
+            layout = new GlyphLayout(fontSmall, "Toque para voltar ao Menu Principal");
+            fontSmall.draw(game.getBatch(), "Toque para voltar ao Menu Principal", ((Gdx.graphics.getWidth() / 2) - (layout.width / 2)), ((Gdx.graphics.getHeight() / 2) - 200));
+
             game.getBatch().end();
+
+            if (Gdx.input.isTouched()) {
+                this.game.MainMenu();
+                GameController.newInstance();
+                gameOver=false;
+                touched=false;
+            }
+
+
         }
 
     }

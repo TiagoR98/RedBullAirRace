@@ -62,6 +62,11 @@ public class GameModel {
         return instance;
     }
 
+    public static GameModel newInstance(){
+        instance = new GameModel();
+        return instance;
+    }
+
     Pool<PylonModel> pylonPool;
 
     private final int distancePylons = 600;

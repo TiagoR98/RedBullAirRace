@@ -34,7 +34,7 @@ public class RedBullGame extends Game {
 		font = new BitmapFont();
 		font.setColor(Color.RED);
 
-		startGame();
+		MainMenu();
 
 
 	}
@@ -67,8 +67,13 @@ public class RedBullGame extends Game {
     }
 
     public void startGame(){
+		score=0;
 		setScreen(new GameView(this));
-		//setScreen(new MainMenu());
+	}
+
+
+	public void MainMenu(){
+		setScreen(new MainMenu(this));
 	}
 
 	public void scored(){this.score++;}

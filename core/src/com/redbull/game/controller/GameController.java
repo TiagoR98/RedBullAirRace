@@ -54,6 +54,12 @@ public class GameController implements ContactListener{
         return instance;
     }
 
+    public static GameController newInstance(){
+        GameModel.newInstance();
+        instance = new GameController();
+        return instance;
+    }
+
     float torque = 12f;
     Box2DDebugRenderer debugg = new Box2DDebugRenderer();
     public void update(float delta){
