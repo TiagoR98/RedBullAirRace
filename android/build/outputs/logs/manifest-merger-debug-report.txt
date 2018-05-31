@@ -1,23 +1,23 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/tiaguinho/GitHub/RedBullAirRace/android/AndroidManifest.xml:2:1-24:12
-INJECTED from /Users/tiaguinho/GitHub/RedBullAirRace/android/AndroidManifest.xml:2:1-24:12
-INJECTED from /Users/tiaguinho/GitHub/RedBullAirRace/android/AndroidManifest.xml:2:1-24:12
-INJECTED from /Users/tiaguinho/GitHub/RedBullAirRace/android/AndroidManifest.xml:2:1-24:12
-INJECTED from /Users/tiaguinho/GitHub/RedBullAirRace/android/AndroidManifest.xml:2:1-24:12
-INJECTED from /Users/tiaguinho/GitHub/RedBullAirRace/android/AndroidManifest.xml:2:1-24:12
-INJECTED from /Users/tiaguinho/GitHub/RedBullAirRace/android/AndroidManifest.xml:2:1-24:12
+ADDED from /Users/tiaguinho/GitHub/RedBullAirRace/android/AndroidManifest.xml:2:1-28:12
+INJECTED from /Users/tiaguinho/GitHub/RedBullAirRace/android/AndroidManifest.xml:2:1-28:12
+INJECTED from /Users/tiaguinho/GitHub/RedBullAirRace/android/AndroidManifest.xml:2:1-28:12
+INJECTED from /Users/tiaguinho/GitHub/RedBullAirRace/android/AndroidManifest.xml:2:1-28:12
+INJECTED from /Users/tiaguinho/GitHub/RedBullAirRace/android/AndroidManifest.xml:2:1-28:12
+INJECTED from /Users/tiaguinho/GitHub/RedBullAirRace/android/AndroidManifest.xml:2:1-28:12
+INJECTED from /Users/tiaguinho/GitHub/RedBullAirRace/android/AndroidManifest.xml:2:1-28:12
 	package
 		ADDED from /Users/tiaguinho/GitHub/RedBullAirRace/android/AndroidManifest.xml:3:5-31
 		INJECTED from /Users/tiaguinho/GitHub/RedBullAirRace/android/AndroidManifest.xml
 		INJECTED from /Users/tiaguinho/GitHub/RedBullAirRace/android/AndroidManifest.xml
 	android:versionName
 		INJECTED from /Users/tiaguinho/GitHub/RedBullAirRace/android/AndroidManifest.xml
-		ADDED from /Users/tiaguinho/GitHub/RedBullAirRace/android/AndroidManifest.xml:2:1-24:12
+		ADDED from /Users/tiaguinho/GitHub/RedBullAirRace/android/AndroidManifest.xml:2:1-28:12
 		INJECTED from /Users/tiaguinho/GitHub/RedBullAirRace/android/AndroidManifest.xml
 	android:versionCode
 		INJECTED from /Users/tiaguinho/GitHub/RedBullAirRace/android/AndroidManifest.xml
-		ADDED from /Users/tiaguinho/GitHub/RedBullAirRace/android/AndroidManifest.xml:2:1-24:12
+		ADDED from /Users/tiaguinho/GitHub/RedBullAirRace/android/AndroidManifest.xml:2:1-28:12
 		INJECTED from /Users/tiaguinho/GitHub/RedBullAirRace/android/AndroidManifest.xml
 	xmlns:android
 		ADDED from /Users/tiaguinho/GitHub/RedBullAirRace/android/AndroidManifest.xml:2:11-69
@@ -65,3 +65,15 @@ category#android.intent.category.LAUNCHER
 ADDED from /Users/tiaguinho/GitHub/RedBullAirRace/android/AndroidManifest.xml:19:17-77
 	android:name
 		ADDED from /Users/tiaguinho/GitHub/RedBullAirRace/android/AndroidManifest.xml:19:27-74
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from /Users/tiaguinho/GitHub/RedBullAirRace/android/AndroidManifest.xml:24:5-78
+	android:name
+		ADDED from /Users/tiaguinho/GitHub/RedBullAirRace/android/AndroidManifest.xml:24:22-76
+uses-permission#android.permission.ACCESS_WIFI_STATE
+ADDED from /Users/tiaguinho/GitHub/RedBullAirRace/android/AndroidManifest.xml:25:5-75
+	android:name
+		ADDED from /Users/tiaguinho/GitHub/RedBullAirRace/android/AndroidManifest.xml:25:22-73
+uses-permission#android.permission.INTERNET
+ADDED from /Users/tiaguinho/GitHub/RedBullAirRace/android/AndroidManifest.xml:26:5-66
+	android:name
+		ADDED from /Users/tiaguinho/GitHub/RedBullAirRace/android/AndroidManifest.xml:26:22-64

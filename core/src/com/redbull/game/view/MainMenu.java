@@ -41,7 +41,9 @@ public class MainMenu extends ScreenAdapter {
         button2.addListener(new InputHandler(this.game){
             @Override
             public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
-                this.getGame().startGame();
+                try {
+                    this.getGame().startGame();
+                }catch (Exception e){}
             }
 
             @Override
@@ -76,5 +78,7 @@ public class MainMenu extends ScreenAdapter {
 
         stage.act();
         stage.draw();
+
+
     }
 }
