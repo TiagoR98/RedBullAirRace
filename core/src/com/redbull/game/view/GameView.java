@@ -40,8 +40,8 @@ public class GameView extends ScreenAdapter {
 
     private boolean touched = false;
 
-    public final static float METER_TO_PIXEL_V = Gdx.graphics.getHeight()/GameModel.getInstance().ARENA_HEIGHT;
-    public final static float METER_TO_PIXEL_H = Gdx.graphics.getWidth()/GameModel.getInstance().ARENA_WIDTH;
+    public final static float METER_TO_PIXEL_V = (Gdx.graphics.getHeight()*0.9f)/(float)GameModel.getInstance().ARENA_HEIGHT;
+    public final static float METER_TO_PIXEL_H = (Gdx.graphics.getWidth()*0.9f)/(float)GameModel.getInstance().ARENA_WIDTH;
 
 
     BitmapFont font,fontSmall;
@@ -143,13 +143,6 @@ public class GameView extends ScreenAdapter {
                 GameController.getInstance().update(delta);
 
 
-        //System.out.print("Fuck JAS");
-
-        /*
-        debugMatrix = game.getBatch().getProjectionMatrix().cpy().scale(1,
-                1, 0);
-    */
-
         game.getBatch().begin();
         drawBackground((int)(GameModel.getInstance().getActivePlane().getVelocity()*backgroundParallax));
 
@@ -161,13 +154,23 @@ public class GameView extends ScreenAdapter {
         pSprite.setRotation(plane.getRotation());
         pSprite.draw(game.getBatch());
 
+        shapeRenderer.setColor(Color.BLACK);
+        shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
+
         ArrayList<PylonModel> pylons = GameModel.getInstance().getPylons();
         for(PylonModel pylon : pylons) {
             Sprite pylonSprite = new PylonView(game, pylon.getPylonType()).createSprite(game);
             pylonSprite.setPosition(pylon.getX(), pylon.getY());
-            float scaleFactor = (float) ((Gdx.graphics.getHeight() * 0.9) / pylonSprite.getHeight());
+            float scaleFactor = (float) ((Gdx.graphics.getHeight()*0.9) / pylonSprite.getHeight());
             pylonSprite.setSize(pylonSprite.getWidth() * scaleFactor, pylonSprite.getHeight() * scaleFactor);
             pylonSprite.draw(game.getBatch());
+            //font.draw(game.getBatch(), "Fuck JAS", pylon.getX(),pylon.getPylonType().getHighestPoint()*METER_TO_PIXEL_V);
+            //font.draw(game.getBatch(), "Fuck JAS", pylon.getX(),(pylon.getPylonType().getHighestPoint()-29.75f)*METER_TO_PIXEL_V);
+
+
+            shapeRenderer.circle(pylon.getX()+pylonSprite.getWidth()/2,pylon.getPylonType().getHighestPoint()*METER_TO_PIXEL_V, 5);
+            shapeRenderer.circle(pylon.getX()+pylonSprite.getWidth()/2,(pylon.getPylonType().getHighestPoint()-pylon.getPylonType().getPassingZone())*METER_TO_PIXEL_V, 5);
+
 
 
             if (((pylonSprite.getX()+pylonSprite.getWidth()/2) <= plane.getX()*1.2*METER_TO_PIXEL_H) &&
@@ -187,7 +190,9 @@ public class GameView extends ScreenAdapter {
         //font.draw(game.getBatch(), "Fuck JAS", plane.getX()*METER_TO_PIXEL_H,plane.getY()*METER_TO_PIXEL_V);
         font.draw(game.getBatch(), Integer.toString(game.getScore()), ((Gdx.graphics.getWidth() / 2) - (layout.width / 2)), (float) (Gdx.graphics.getHeight()*0.9));
         game.getBatch().end();
-        //debugRenderer.render(GameController.getInstance().getWorld(), debugMatrix);
+
+
+        shapeRenderer.end();
 
         handleInputs(delta);
 
