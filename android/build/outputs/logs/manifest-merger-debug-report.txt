@@ -1,44 +1,24 @@
 -- Merging decision tree log ---
 manifest
-<<<<<<< HEAD
-ADDED from /Users/tiaguinho/GitHub/RedBullAirRace/android/AndroidManifest.xml:2:1-28:12
-INJECTED from /Users/tiaguinho/GitHub/RedBullAirRace/android/AndroidManifest.xml:2:1-28:12
-INJECTED from /Users/tiaguinho/GitHub/RedBullAirRace/android/AndroidManifest.xml:2:1-28:12
-INJECTED from /Users/tiaguinho/GitHub/RedBullAirRace/android/AndroidManifest.xml:2:1-28:12
-INJECTED from /Users/tiaguinho/GitHub/RedBullAirRace/android/AndroidManifest.xml:2:1-28:12
-INJECTED from /Users/tiaguinho/GitHub/RedBullAirRace/android/AndroidManifest.xml:2:1-28:12
-INJECTED from /Users/tiaguinho/GitHub/RedBullAirRace/android/AndroidManifest.xml:2:1-28:12
-=======
-ADDED from D:\Ambiente de Trabalho\LPOO\RedBullAirRace\android\AndroidManifest.xml:2:1-24:12
-INJECTED from D:\Ambiente de Trabalho\LPOO\RedBullAirRace\android\AndroidManifest.xml:2:1-24:12
-INJECTED from D:\Ambiente de Trabalho\LPOO\RedBullAirRace\android\AndroidManifest.xml:2:1-24:12
-INJECTED from D:\Ambiente de Trabalho\LPOO\RedBullAirRace\android\AndroidManifest.xml:2:1-24:12
-INJECTED from D:\Ambiente de Trabalho\LPOO\RedBullAirRace\android\AndroidManifest.xml:2:1-24:12
-INJECTED from D:\Ambiente de Trabalho\LPOO\RedBullAirRace\android\AndroidManifest.xml:2:1-24:12
-INJECTED from D:\Ambiente de Trabalho\LPOO\RedBullAirRace\android\AndroidManifest.xml:2:1-24:12
->>>>>>> 5b9ce175843ed5b381ea6e98188bfa67c697e4be
+ADDED from D:\Ambiente de Trabalho\LPOO\RedBullAirRace\android\AndroidManifest.xml:2:1-28:12
+INJECTED from D:\Ambiente de Trabalho\LPOO\RedBullAirRace\android\AndroidManifest.xml:2:1-28:12
+INJECTED from D:\Ambiente de Trabalho\LPOO\RedBullAirRace\android\AndroidManifest.xml:2:1-28:12
+INJECTED from D:\Ambiente de Trabalho\LPOO\RedBullAirRace\android\AndroidManifest.xml:2:1-28:12
+INJECTED from D:\Ambiente de Trabalho\LPOO\RedBullAirRace\android\AndroidManifest.xml:2:1-28:12
+INJECTED from D:\Ambiente de Trabalho\LPOO\RedBullAirRace\android\AndroidManifest.xml:2:1-28:12
+INJECTED from D:\Ambiente de Trabalho\LPOO\RedBullAirRace\android\AndroidManifest.xml:2:1-28:12
 	package
 		ADDED from D:\Ambiente de Trabalho\LPOO\RedBullAirRace\android\AndroidManifest.xml:3:5-31
 		INJECTED from D:\Ambiente de Trabalho\LPOO\RedBullAirRace\android\AndroidManifest.xml
 		INJECTED from D:\Ambiente de Trabalho\LPOO\RedBullAirRace\android\AndroidManifest.xml
 	android:versionName
-<<<<<<< HEAD
-		INJECTED from /Users/tiaguinho/GitHub/RedBullAirRace/android/AndroidManifest.xml
-		ADDED from /Users/tiaguinho/GitHub/RedBullAirRace/android/AndroidManifest.xml:2:1-28:12
-		INJECTED from /Users/tiaguinho/GitHub/RedBullAirRace/android/AndroidManifest.xml
-	android:versionCode
-		INJECTED from /Users/tiaguinho/GitHub/RedBullAirRace/android/AndroidManifest.xml
-		ADDED from /Users/tiaguinho/GitHub/RedBullAirRace/android/AndroidManifest.xml:2:1-28:12
-		INJECTED from /Users/tiaguinho/GitHub/RedBullAirRace/android/AndroidManifest.xml
-=======
 		INJECTED from D:\Ambiente de Trabalho\LPOO\RedBullAirRace\android\AndroidManifest.xml
-		ADDED from D:\Ambiente de Trabalho\LPOO\RedBullAirRace\android\AndroidManifest.xml:2:1-24:12
+		ADDED from D:\Ambiente de Trabalho\LPOO\RedBullAirRace\android\AndroidManifest.xml:2:1-28:12
 		INJECTED from D:\Ambiente de Trabalho\LPOO\RedBullAirRace\android\AndroidManifest.xml
 	android:versionCode
 		INJECTED from D:\Ambiente de Trabalho\LPOO\RedBullAirRace\android\AndroidManifest.xml
-		ADDED from D:\Ambiente de Trabalho\LPOO\RedBullAirRace\android\AndroidManifest.xml:2:1-24:12
+		ADDED from D:\Ambiente de Trabalho\LPOO\RedBullAirRace\android\AndroidManifest.xml:2:1-28:12
 		INJECTED from D:\Ambiente de Trabalho\LPOO\RedBullAirRace\android\AndroidManifest.xml
->>>>>>> 5b9ce175843ed5b381ea6e98188bfa67c697e4be
 	xmlns:android
 		ADDED from D:\Ambiente de Trabalho\LPOO\RedBullAirRace\android\AndroidManifest.xml:2:11-69
 uses-sdk
@@ -84,20 +64,16 @@ ADDED from D:\Ambiente de Trabalho\LPOO\RedBullAirRace\android\AndroidManifest.x
 category#android.intent.category.LAUNCHER
 ADDED from D:\Ambiente de Trabalho\LPOO\RedBullAirRace\android\AndroidManifest.xml:19:17-77
 	android:name
-<<<<<<< HEAD
-		ADDED from /Users/tiaguinho/GitHub/RedBullAirRace/android/AndroidManifest.xml:19:27-74
-uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from /Users/tiaguinho/GitHub/RedBullAirRace/android/AndroidManifest.xml:24:5-78
-	android:name
-		ADDED from /Users/tiaguinho/GitHub/RedBullAirRace/android/AndroidManifest.xml:24:22-76
-uses-permission#android.permission.ACCESS_WIFI_STATE
-ADDED from /Users/tiaguinho/GitHub/RedBullAirRace/android/AndroidManifest.xml:25:5-75
-	android:name
-		ADDED from /Users/tiaguinho/GitHub/RedBullAirRace/android/AndroidManifest.xml:25:22-73
-uses-permission#android.permission.INTERNET
-ADDED from /Users/tiaguinho/GitHub/RedBullAirRace/android/AndroidManifest.xml:26:5-66
-	android:name
-		ADDED from /Users/tiaguinho/GitHub/RedBullAirRace/android/AndroidManifest.xml:26:22-64
-=======
 		ADDED from D:\Ambiente de Trabalho\LPOO\RedBullAirRace\android\AndroidManifest.xml:19:27-74
->>>>>>> 5b9ce175843ed5b381ea6e98188bfa67c697e4be
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from D:\Ambiente de Trabalho\LPOO\RedBullAirRace\android\AndroidManifest.xml:24:5-78
+	android:name
+		ADDED from D:\Ambiente de Trabalho\LPOO\RedBullAirRace\android\AndroidManifest.xml:24:22-76
+uses-permission#android.permission.ACCESS_WIFI_STATE
+ADDED from D:\Ambiente de Trabalho\LPOO\RedBullAirRace\android\AndroidManifest.xml:25:5-75
+	android:name
+		ADDED from D:\Ambiente de Trabalho\LPOO\RedBullAirRace\android\AndroidManifest.xml:25:22-73
+uses-permission#android.permission.INTERNET
+ADDED from D:\Ambiente de Trabalho\LPOO\RedBullAirRace\android\AndroidManifest.xml:26:5-66
+	android:name
+		ADDED from D:\Ambiente de Trabalho\LPOO\RedBullAirRace\android\AndroidManifest.xml:26:22-64

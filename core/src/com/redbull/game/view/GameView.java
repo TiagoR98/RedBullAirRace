@@ -29,7 +29,7 @@ public class GameView extends ScreenAdapter {
 
     private final RedBullGame game;
     private int x2;
-    private static final double backgroundParallax = 0.70;
+    private static final double backgroundParallax = 0.50;
 
     private Box2DDebugRenderer debugRenderer;
 
@@ -38,7 +38,6 @@ public class GameView extends ScreenAdapter {
     FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("The Outbox St.ttf"));
     FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
 
-    private boolean gameOver = false;
     private boolean touched = false;
 
     public final static float METER_TO_PIXEL_V = Gdx.graphics.getHeight()/GameModel.getInstance().ARENA_HEIGHT;
@@ -52,6 +51,8 @@ public class GameView extends ScreenAdapter {
     ShapeRenderer shapeRenderer;
 
     public GameView(RedBullGame game){
+        GameModel.newInstance();
+        GameController.newInstance();
         shapeRenderer = new ShapeRenderer();
         this.game = game;
         loadAssets();
@@ -139,15 +140,16 @@ public class GameView extends ScreenAdapter {
     int x1=0;
     @Override
     public void render (float delta) {
-        if(!gameOver){
             if(touched)
                 GameController.getInstance().update(delta);
 
 
         //System.out.print("Fuck JAS");
 
+        /*
         debugMatrix = game.getBatch().getProjectionMatrix().cpy().scale(1,
                 1, 0);
+    */
 
         game.getBatch().begin();
         drawBackground((int)(GameModel.getInstance().getActivePlane().getVelocity()*backgroundParallax));
@@ -172,45 +174,23 @@ public class GameView extends ScreenAdapter {
             if (((pylonSprite.getX()+pylonSprite.getWidth()/2) <= plane.getX()*METER_TO_PIXEL_H) &&
                     ((pylonSprite.getX()+pylonSprite.getWidth()/2) >= plane.getX()*METER_TO_PIXEL_H - plane.getVelocity()))
                 if (checkPylonPassage(pylon, plane) == -1) {
-                    gameOver = true;
+                    this.game.gameOver();
                 }else{
                     game.scored();
                 }
             }
 
         if(plane.getY()*METER_TO_PIXEL_V<=0)
-            gameOver = true;
+            this.game.gameOver();
 
             layout = new GlyphLayout(font, Integer.toString(game.getScore()));
 
         //font.draw(game.getBatch(), "Fuck JAS", plane.getX()*METER_TO_PIXEL_H,plane.getY()*METER_TO_PIXEL_V);
         font.draw(game.getBatch(), Integer.toString(game.getScore()), ((Gdx.graphics.getWidth() / 2) - (layout.width / 2)), (float) (Gdx.graphics.getHeight()*0.9));
         game.getBatch().end();
-        debugRenderer.render(GameController.getInstance().getWorld(), debugMatrix);
+        //debugRenderer.render(GameController.getInstance().getWorld(), debugMatrix);
 
         handleInputs(delta);
-
-        }else{
-            game.getBatch().begin();
-
-            layout = new GlyphLayout(font, "Game Over");
-            font.draw(game.getBatch(), "Game Over", ((Gdx.graphics.getWidth() / 2) - (layout.width / 2)), ((Gdx.graphics.getHeight() / 2) + (layout.height / 2)));
-
-
-            layout = new GlyphLayout(fontSmall, "Toque para voltar ao Menu Principal");
-            fontSmall.draw(game.getBatch(), "Toque para voltar ao Menu Principal", ((Gdx.graphics.getWidth() / 2) - (layout.width / 2)), ((Gdx.graphics.getHeight() / 2) - 200));
-
-            game.getBatch().end();
-
-            if (Gdx.input.isTouched()) {
-                this.game.MainMenu();
-                GameController.newInstance();
-                gameOver=false;
-                touched=false;
-            }
-
-
-        }
 
     }
 

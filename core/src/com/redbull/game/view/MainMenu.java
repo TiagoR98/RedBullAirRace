@@ -27,7 +27,7 @@ public class MainMenu extends ScreenAdapter {
     private Stage stage;
     Skin mySkin;
     int Help_Guides = 12;
-    int row_height = Gdx.graphics.getWidth() / 12;
+    int row_height = Gdx.graphics.getHeight() / 12;
     int col_width = Gdx.graphics.getWidth() / 12;
     private Label outputLabel;
 
@@ -40,23 +40,27 @@ public class MainMenu extends ScreenAdapter {
 
         Texture texture = new Texture(Gdx.files.internal("backgmenu.png"));
         Image back = new Image(texture);
-        back.setPosition(0,0);
+        float scaleFactor = (Gdx.graphics.getHeight()) / back.getHeight();
+        back.setSize(scaleFactor * back.getWidth(), scaleFactor * back.getHeight());
+        back.setPosition(Gdx.graphics.getWidth()/3 - back.getWidth()/2, 0);
         stage.addActor(back);
 
         Texture texture2 = new Texture(Gdx.files.internal("rbarlogowht.png"));
         Image rbarlogo = new Image(texture2);
-        back.setPosition(0,0);
+        scaleFactor = (float) ((Gdx.graphics.getWidth() * 0.8) / rbarlogo.getWidth());
+        rbarlogo.setSize(scaleFactor*rbarlogo.getWidth(),scaleFactor*rbarlogo.getHeight());
+        rbarlogo.setPosition(col_width*6-rbarlogo.getWidth()/2, row_height*9);
         stage.addActor(rbarlogo);
 
 
         Button button2 = new TextButton("Start Game",mySkin);
-        button2.setSize(col_width*8,row_height*2);
-        button2.setPosition(col_width*6-button2.getWidth()/2,Gdx.graphics.getHeight()-row_height*12);
+        button2.setSize(col_width*6,row_height*1.5f);
+        button2.setPosition(col_width*6-button2.getWidth()/2,row_height*6);
         button2.addListener(new InputHandler(this.game){
             @Override
             public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
                 try {
-                    this.getGame().startGame();
+                    this.getGame().choosePlane();
                 }catch (Exception e){}
             }
 
@@ -67,6 +71,31 @@ public class MainMenu extends ScreenAdapter {
             }
         });
         stage.addActor(button2);
+
+        Button button3 = new TextButton("Highscores",mySkin);
+        button3.setSize(col_width*6,row_height*1.5f);
+        button3.setPosition(col_width*6-button3.getWidth()/2,row_height*3);
+        button3.addListener(new InputHandler(this.game){
+            @Override
+            public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
+                try {
+                    this.getGame().highscores();
+                }catch (Exception e){}
+            }
+
+            @Override
+            public boolean touchDown (InputEvent event, float x, float y, int pointer, int button) {
+                outputLabel.setText("Loading...");
+                return true;
+            }
+        });
+        stage.addActor(button3);
+
+
+
+
+
+
         outputLabel = new Label("",mySkin,"default");
         outputLabel.setSize(Gdx.graphics.getWidth(),row_height);
         outputLabel.setPosition(0,row_height);

@@ -8,8 +8,11 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.mysql.jdbc.jdbc2.optional.MysqlConnectionPoolDataSource;
+import com.redbull.game.view.ChoosePlane;
+import com.redbull.game.view.GameOver;
 import com.redbull.game.view.GameView;
 import com.badlogic.gdx.Game;
+import com.redbull.game.view.Highscores;
 import com.redbull.game.view.MainMenu;
 
 import org.apache.http.HttpResponse;
@@ -116,17 +119,7 @@ public class RedBullGame extends Game {
 		}
 	}
 
-	public void startGame() throws SQLException {
-
-		/*
-		//-------
-		getHighScores();
-		submitHighScore("Miguel",30);
-		getHighScores();
-		System.out.println("FUCK Jas");
-		//-----
-		*/
-
+	public void startGame(){
 		score=0;
 		setScreen(new GameView(this));
 	}
@@ -134,6 +127,26 @@ public class RedBullGame extends Game {
 
 	public void MainMenu(){
 		setScreen(new MainMenu(this));
+	}
+
+	public void choosePlane(){
+		setScreen(new ChoosePlane(this));
+	}
+
+	public void highscores() throws SQLException {
+
+		/*
+		getHighScores();
+		submitHighScore("Miguel",30);
+		getHighScores();
+		System.out.println("FUCK Jas");
+	*/
+
+		setScreen(new Highscores(this));
+	}
+
+	public void gameOver(){
+		setScreen(new GameOver(this));
 	}
 
 	public void scored(){this.score++;}
