@@ -16,7 +16,7 @@ public class PlaneModel extends EntityModel {
 
 
    public PlaneModel(int velocity, String textNormal, ArrayList<String> intTextures, String textKnife){
-       super(20, 50, 0);
+       super(14, 50, 0);
        this.velocity = velocity;
        this.intTextures = intTextures;
        this.textNormal = textNormal;
