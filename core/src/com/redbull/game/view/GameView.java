@@ -77,7 +77,8 @@ public class GameView extends ScreenAdapter {
 
             @Override
             public void onUp() {
-                // TODO Auto-generated method stub
+                if(GameModel.getInstance().getActivePlane().getIsKnife())
+                    GameModel.getInstance().getActivePlane().Swipe();
             }
 
             @Override
@@ -94,7 +95,8 @@ public class GameView extends ScreenAdapter {
 
             @Override
             public void onDown() {
-                GameModel.getInstance().getActivePlane().Swipe();
+                if(!GameModel.getInstance().getActivePlane().getIsKnife())
+                    GameModel.getInstance().getActivePlane().Swipe();
 
             }
         }));

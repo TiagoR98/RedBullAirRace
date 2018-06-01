@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 public class PlaneModel extends EntityModel {
     private boolean isKnife = false;
+    private boolean animationControl = true;
     private int textIndice = -1;
     private int velocity;
     private String textNormal;
@@ -44,12 +45,12 @@ public class PlaneModel extends EntityModel {
             if(textIndice == 0) {
                 textIndice = -1;
                 isKnife = !isKnife;
-            }else  textIndice--;
+            }else  textIndice-=1;
         }
         else if(textIndice == intTextures.size()-1) {
             textIndice = -1;
             isKnife = !isKnife;
-        }else  textIndice++;
+        }else  textIndice+=1;
     }
 
    public String getTexture(){
@@ -59,7 +60,9 @@ public class PlaneModel extends EntityModel {
        }
        else {
            String ret = intTextures.get(textIndice);
+           if(animationControl)
            incrementAnimation();
+           animationControl=!animationControl;
            return ret;
        }
    }
