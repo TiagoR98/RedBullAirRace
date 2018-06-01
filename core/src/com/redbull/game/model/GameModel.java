@@ -85,7 +85,7 @@ public class GameModel {
             @Override
             protected PylonModel newObject() {
                 int randomNum = ThreadLocalRandom.current().nextInt(0, pylonTypes.size());
-                return new PylonModel(screenMargin,pylonTypes.get(3));
+                return new PylonModel(screenMargin,pylonTypes.get(randomNum));
             }
         };
 

@@ -167,10 +167,10 @@ public class GameView extends ScreenAdapter {
             //font.draw(game.getBatch(), "Fuck JAS", pylon.getX(),pylon.getPylonType().getHighestPoint()*METER_TO_PIXEL_V);
             //font.draw(game.getBatch(), "Fuck JAS", pylon.getX(),(pylon.getPylonType().getHighestPoint()-29.75f)*METER_TO_PIXEL_V);
 
-
+            /*
             shapeRenderer.circle(pylon.getX()+pylonSprite.getWidth()/2,pylon.getPylonType().getHighestPoint()*METER_TO_PIXEL_V, 5);
             shapeRenderer.circle(pylon.getX()+pylonSprite.getWidth()/2,(pylon.getPylonType().getHighestPoint()-pylon.getPylonType().getPassingZone())*METER_TO_PIXEL_V, 5);
-
+            */
 
 
             if (((pylonSprite.getX()+pylonSprite.getWidth()/2) <= plane.getX()*1.2*METER_TO_PIXEL_H) &&
