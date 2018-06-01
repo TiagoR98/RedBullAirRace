@@ -68,9 +68,6 @@ public class GameView extends ScreenAdapter {
         parameter.size = 30;
         fontSmall=generator.generateFont(parameter);
 
-        debugRenderer = new Box2DDebugRenderer();
-        camera = new OrthographicCamera(Gdx.graphics.getWidth(),Gdx.graphics.
-                getHeight());
 
 
         Gdx.input.setInputProcessor(new SimpleDirectionGestureDetector(new SimpleDirectionGestureDetector.DirectionListener() {
@@ -173,8 +170,8 @@ public class GameView extends ScreenAdapter {
             pylonSprite.draw(game.getBatch());
 
 
-            if (((pylonSprite.getX()+pylonSprite.getWidth()/2) <= plane.getX()*METER_TO_PIXEL_H) &&
-                    ((pylonSprite.getX()+pylonSprite.getWidth()/2) >= plane.getX()*METER_TO_PIXEL_H - plane.getVelocity()))
+            if (((pylonSprite.getX()+pylonSprite.getWidth()/2) <= plane.getX()*1.2*METER_TO_PIXEL_H) &&
+                    ((pylonSprite.getX()+pylonSprite.getWidth()/2) >= plane.getX()*1.2*METER_TO_PIXEL_H - plane.getVelocity()))
                 if (checkPylonPassage(pylon, plane) == -1) {
                     this.game.gameOver();
                 }else{
