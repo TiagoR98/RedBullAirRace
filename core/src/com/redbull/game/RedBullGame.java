@@ -1,32 +1,27 @@
 package com.redbull.game;
 
-import com.badlogic.gdx.Net;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.mysql.jdbc.jdbc2.optional.MysqlConnectionPoolDataSource;
 import com.redbull.game.view.ChoosePlane;
 import com.redbull.game.view.GameOver;
 import com.redbull.game.view.GameView;
 import com.badlogic.gdx.Game;
 import com.redbull.game.view.Highscores;
 import com.redbull.game.view.MainMenu;
+import com.redbull.game.view.SubmitScore;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONArray;
-import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 
@@ -127,8 +122,12 @@ public class RedBullGame extends Game {
 		setScreen(new ChoosePlane(this));
 	}
 
-	public void highscores() throws SQLException {
+	public void highscores(){
 		setScreen(new Highscores(this));
+	}
+
+	public void submitScore(){
+		setScreen(new SubmitScore(this));
 	}
 
 	public void gameOver(){
