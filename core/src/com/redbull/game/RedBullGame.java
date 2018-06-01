@@ -79,7 +79,7 @@ public class RedBullGame extends Game {
         return score;
     }
 
-    public JSONArray getHighScores() throws SQLException{
+    public JSONArray getHighScores(){
 		try{
 			HttpClient client = new DefaultHttpClient();
 			HttpGet request = new HttpGet("http://redbullairrace.000webhostapp.com/selectScores.php?limit=10");
@@ -92,12 +92,6 @@ public class RedBullGame extends Game {
 
 			String line = "";
 			JSONArray convResponse = new JSONArray(rd.readLine());
-
-
-			//print - temporario
-			for (int i=0; i < convResponse.length(); i++) {
-				System.out.println(convResponse.getJSONObject(i).getString("username") + " - " + convResponse.getJSONObject(i).getString("score"));
-			}
 
 			return convResponse;
 		}catch(Exception e){
@@ -134,14 +128,6 @@ public class RedBullGame extends Game {
 	}
 
 	public void highscores() throws SQLException {
-
-		/*
-		getHighScores();
-		submitHighScore("Miguel",30);
-		getHighScores();
-		System.out.println("FUCK Jas");
-	*/
-
 		setScreen(new Highscores(this));
 	}
 
