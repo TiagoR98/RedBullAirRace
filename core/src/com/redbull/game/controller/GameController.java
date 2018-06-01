@@ -40,7 +40,7 @@ public class GameController implements ContactListener{
 
 
     private GameController(){
-        world = new World(new Vector2(0, -30f), true);
+        world = new World(new Vector2(0, -30f*GameModel.getInstance().getActivePlane().getPlaneLinearCompensate()), true);
 
         planeBody = new PlaneBody(world, GameModel.getInstance().getActivePlane());
 
@@ -55,7 +55,6 @@ public class GameController implements ContactListener{
     }
 
     public static GameController newInstance(){
-        GameModel.newInstance();
         instance = new GameController();
         return instance;
     }
@@ -105,15 +104,15 @@ public class GameController implements ContactListener{
     public void jump(float delta){
         //planeBody.getBody().applyLinearImpulse(0,10, planeBody.getBody().getPosition().x, planeBody.getBody().getPosition().y,true);
     if(GameModel.getInstance().getActivePlane().getIsKnife()){
-        if (planeBody.getBody().getLinearVelocity().y < 1)
-            planeBody.getBody().setLinearVelocity(0, planeBody.getBody().getLinearVelocity().y + 1);
-        else if (planeBody.getBody().getLinearVelocity().y == 1)
-            planeBody.getBody().setLinearVelocity(0, 1);
+        if (planeBody.getBody().getLinearVelocity().y < 1*GameModel.getInstance().getActivePlane().getPlaneLinearCompensate())
+            planeBody.getBody().setLinearVelocity(0, planeBody.getBody().getLinearVelocity().y + 1*GameModel.getInstance().getActivePlane().getPlaneLinearCompensate());
+        else if (planeBody.getBody().getLinearVelocity().y == 1*GameModel.getInstance().getActivePlane().getPlaneLinearCompensate())
+            planeBody.getBody().setLinearVelocity(0, 1*GameModel.getInstance().getActivePlane().getPlaneLinearCompensate());
     }else {
-        if (planeBody.getBody().getLinearVelocity().y < 30)
-            planeBody.getBody().setLinearVelocity(0, planeBody.getBody().getLinearVelocity().y + 3);
+        if (planeBody.getBody().getLinearVelocity().y < 30*GameModel.getInstance().getActivePlane().getPlaneLinearCompensate())
+            planeBody.getBody().setLinearVelocity(0, planeBody.getBody().getLinearVelocity().y + 3*GameModel.getInstance().getActivePlane().getPlaneLinearCompensate());
         else
-            planeBody.getBody().setLinearVelocity(0, 30);
+            planeBody.getBody().setLinearVelocity(0, 30*GameModel.getInstance().getActivePlane().getPlaneLinearCompensate());
     }
        // if(((PlaneModel)planeBody.getUserData()).getRotation()<30)
          //   ((PlaneModel)planeBody.getUserData()).setRotation(((PlaneModel)planeBody.getUserData()).getRotation()+4);

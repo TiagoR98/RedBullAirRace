@@ -51,8 +51,6 @@ public class GameView extends ScreenAdapter {
     ShapeRenderer shapeRenderer;
 
     public GameView(RedBullGame game){
-        GameModel.newInstance();
-        GameController.newInstance();
         shapeRenderer = new ShapeRenderer();
         this.game = game;
         loadAssets();
@@ -123,9 +121,18 @@ public class GameView extends ScreenAdapter {
         this.game.getAssetManager().load("master6.png", Texture.class);
         this.game.getAssetManager().load("master7.png", Texture.class);
 
+        this.game.getAssetManager().load("chall1.png", Texture.class);
+        this.game.getAssetManager().load("chall2.png", Texture.class);
+        this.game.getAssetManager().load("chall3.png", Texture.class);
+        this.game.getAssetManager().load("chall4.png", Texture.class);
+        this.game.getAssetManager().load("chall5.png", Texture.class);
+        this.game.getAssetManager().load("chall6.png", Texture.class);
+        this.game.getAssetManager().load("chall7.png", Texture.class);
 
 
-    this.game.getAssetManager().load("backg.png", Texture.class);
+
+
+        this.game.getAssetManager().load("backg.png", Texture.class);
     this.game.getAssetManager().finishLoading();
 
     Texture txt = game.getAssetManager().get("backg.png");

@@ -18,6 +18,8 @@ import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.redbull.game.RedBullGame;
+import com.redbull.game.controller.GameController;
+import com.redbull.game.model.GameModel;
 
 public class ChoosePlane extends ScreenAdapter {
 
@@ -52,10 +54,12 @@ public class ChoosePlane extends ScreenAdapter {
             public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
                 masterButton.setTransform(true);
                 masterButton.setOrigin(Align.center);
-                masterButton.setScale(1.5f);
+                masterButton.setScale(1.04f);
                 try {
+                    GameModel.getInstance().setMasterPlane();
+                    GameController.newInstance();
                     this.getGame().startGame();
-                }catch (Exception e){}
+                }catch (Exception e){System.out.println(e.getCause());}
             }
 
             @Override
@@ -78,10 +82,12 @@ public class ChoosePlane extends ScreenAdapter {
             public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
                 challengerButton.setTransform(true);
                 challengerButton.setOrigin(Align.center);
-                challengerButton.setScale(1.5f);
+                challengerButton.setScale(1.04f);
                 try {
+                    GameModel.getInstance().setChallengerPlane();
+                    GameController.newInstance();
                     this.getGame().startGame();
-                }catch (Exception e){}
+                }catch (Exception e){System.out.println(e.getCause());}
             }
 
             @Override

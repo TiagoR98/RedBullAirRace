@@ -1,5 +1,6 @@
 package com.redbull.game.view;
 
+import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.Color;
@@ -19,6 +20,9 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextField;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.redbull.game.RedBullGame;
+import com.redbull.game.controller.GameController;
+import com.redbull.game.model.Entities.PlaneModel;
+import com.redbull.game.model.GameModel;
 
 public class GameOver extends ScreenAdapter {
     private static GameOver instance;
@@ -59,6 +63,18 @@ public class GameOver extends ScreenAdapter {
             @Override
             public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
                 try {
+                    PlaneModel currentModel = GameModel.getInstance().getActivePlane();
+
+                    GameModel.newInstance();
+
+
+                    if(GameModel.getInstance().getMasterPlane().getVelocity() == currentModel.getVelocity())
+                        GameModel.getInstance().setMasterPlane();
+                    else
+                        GameModel.getInstance().setChallengerPlane();
+
+                    GameController.newInstance();
+
                     this.getGame().startGame();
                 }catch (Exception e){}
             }
@@ -88,23 +104,26 @@ public class GameOver extends ScreenAdapter {
         });
         stage.addActor(button2);
 
-        Button button3 = new TextButton("Submit Score",mySkin);
-        button3.setSize(col_width*6,row_height*1f);
-        button3.setPosition(col_width*6-button3.getWidth()/2,row_height*1.5f);
-        button3.addListener(new InputHandler(this.game){
-            @Override
-            public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
-                try {
-                    this.getGame().submitScore();
-                }catch (Exception e){}
-            }
+        if(GameModel.getInstance().isActiveMaster()) {
+            Button button3 = new TextButton("Submit Score", mySkin);
+            button3.setSize(col_width * 6, row_height * 1f);
+            button3.setPosition(col_width * 6 - button3.getWidth() / 2, row_height * 1.5f);
+            button3.addListener(new InputHandler(this.game) {
+                @Override
+                public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+                    try {
+                        this.getGame().submitScore();
+                    } catch (Exception e) {
+                    }
+                }
 
-            @Override
-            public boolean touchDown (InputEvent event, float x, float y, int pointer, int button) {
-                return true;
-            }
-        });
-        stage.addActor(button3);
+                @Override
+                public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                    return true;
+                }
+            });
+            stage.addActor(button3);
+        }
 
 
         outputLabel = new Label("",mySkin,"default");
@@ -118,6 +137,7 @@ public class GameOver extends ScreenAdapter {
         parameter.borderColor = Color.BLACK;
 
         font=generator.generateFont(parameter);
+
     }
 
     public static GameOver getInstance() {

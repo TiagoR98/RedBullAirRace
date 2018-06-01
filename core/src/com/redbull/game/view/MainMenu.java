@@ -15,6 +15,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.redbull.game.RedBullGame;
+import com.redbull.game.controller.GameController;
 import com.redbull.game.model.GameModel;
 
 import static com.redbull.game.controller.GameController.instance;
@@ -101,6 +102,9 @@ public class MainMenu extends ScreenAdapter {
         outputLabel.setPosition(0,row_height);
         outputLabel.setAlignment(Align.center);
         stage.addActor(outputLabel);
+
+        GameModel.newInstance();
+        GameController.newInstance();
     }
 
     public static MainMenu getInstance() {

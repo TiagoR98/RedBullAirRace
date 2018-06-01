@@ -73,6 +73,7 @@ public class GameModel {
     private final int screenMargin = Gdx.graphics.getWidth()/2;
     private final int realHeight = 100;
     private final int pylonSize = 90;
+    PlaneModel active;
 
     ArrayList<PylonModel> pylons;
 
@@ -92,7 +93,15 @@ public class GameModel {
         PylonModel pyl = pylonPool.obtain();
         pylons.add(pyl);
 
-        //challengerPlane = new PlaneModel(2);
+
+        ArrayList<String> listChallenger = new ArrayList<String>();
+        listChallenger.add("chall2.png");
+        listChallenger.add("chall3.png");
+        listChallenger.add("chall4.png");
+        listChallenger.add("chall5.png");
+        listChallenger.add("chall6.png");
+
+        challengerPlane = new PlaneModel(5, "chall1.png",listChallenger,"chall7.png",1);
 
         ArrayList<String> listMaster = new ArrayList<String>();
             listMaster.add("master2.png");
@@ -101,7 +110,9 @@ public class GameModel {
             listMaster.add("master5.png");
             listMaster.add("master6.png");
 
-        masterPlane = new PlaneModel(5, "master1.png",listMaster,"master7.png");
+        masterPlane = new PlaneModel(8, "master1.png",listMaster,"master7.png",1.5f);
+        setChallengerPlane();
+
     }
 
     public int getPylonTextureHeight(){
@@ -140,8 +151,27 @@ public class GameModel {
         return meters*Gdx.graphics.getHeight()/realHeight;
     }
 
-    public PlaneModel getActivePlane(){
+    public void setChallengerPlane() {
+        this.active = challengerPlane;
+    }
+
+    public void setMasterPlane() {
+        this.active = masterPlane;
+    }
+
+    public PlaneModel getMasterPlane() {
         return masterPlane;
+    }
+
+    public PlaneModel getActivePlane(){
+        return active;
+    }
+
+    public boolean isActiveMaster(){
+        if(masterPlane == active)
+           return true;
+        else
+          return false;
     }
 
 }

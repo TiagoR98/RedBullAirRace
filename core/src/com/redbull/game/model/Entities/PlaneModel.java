@@ -13,14 +13,16 @@ public class PlaneModel extends EntityModel {
     private ArrayList<String> intTextures;
     private String textKnife;
     private float rotation=0;
+    private float planeLinearCompensate;
 
 
-   public PlaneModel(int velocity, String textNormal, ArrayList<String> intTextures, String textKnife){
+   public PlaneModel(int velocity, String textNormal, ArrayList<String> intTextures, String textKnife,float planeLinearCompensate){
        super(14, 50, 0);
        this.velocity = velocity;
        this.intTextures = intTextures;
        this.textNormal = textNormal;
        this.textKnife = textKnife;
+       this.planeLinearCompensate = planeLinearCompensate;
    }
 
     public int getVelocity() {
@@ -53,21 +55,24 @@ public class PlaneModel extends EntityModel {
         }else  textIndice+=1;
     }
 
-   public String getTexture(){
-       if(textIndice == -1){
-           if(isKnife) return textKnife;
+   public String getTexture() {
+       if (textIndice == -1) {
+           if (isKnife) return textKnife;
            else return textNormal;
-       }
-       else {
+       } else {
            String ret = intTextures.get(textIndice);
-           if(animationControl)
-           incrementAnimation();
-           animationControl=!animationControl;
+           if (animationControl)
+               incrementAnimation();
+           animationControl = !animationControl;
            return ret;
        }
    }
 
-   public void Swipe(){
+    public float getPlaneLinearCompensate() {
+        return planeLinearCompensate;
+    }
+
+    public void Swipe(){
        if(isKnife) textIndice = intTextures.size()-1;
        else textIndice = 0;
    }
