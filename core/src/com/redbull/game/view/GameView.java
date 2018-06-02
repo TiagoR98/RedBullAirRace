@@ -59,7 +59,9 @@ public class GameView extends ScreenAdapter {
     public GameView(RedBullGame game){
         shapeRenderer = new ShapeRenderer();
         this.game = game;
-        loadAssets();
+
+        Texture txt = game.getAssetManager().get("backg.png");
+        x2 = -txt.getWidth();
 
         parameter.size = 120;
         parameter.borderWidth = 5;
@@ -74,7 +76,6 @@ public class GameView extends ScreenAdapter {
 
         effect = new ParticleEffect();
         effect.load(Gdx.files.internal("smoke.p"), Gdx.files.internal(""));
-
 
 
 
@@ -107,47 +108,6 @@ public class GameView extends ScreenAdapter {
         }));
 
 
-    }
-
-    private void loadAssets(){
-        this.game.getAssetManager().load("p1v.png", Texture.class);
-        this.game.getAssetManager().load("p2v.png", Texture.class);
-        this.game.getAssetManager().load("p3v.png", Texture.class);
-        this.game.getAssetManager().load("p4v.png", Texture.class);
-        this.game.getAssetManager().load("p5v.png", Texture.class);
-        this.game.getAssetManager().load("p6v.png", Texture.class);
-        this.game.getAssetManager().load("p1a.png", Texture.class);
-        this.game.getAssetManager().load("p2a.png", Texture.class);
-        this.game.getAssetManager().load("p3a.png", Texture.class);
-        this.game.getAssetManager().load("p4a.png", Texture.class);
-        this.game.getAssetManager().load("p5a.png", Texture.class);
-        this.game.getAssetManager().load("p6a.png", Texture.class);
-
-        this.game.getAssetManager().load("master1.png", Texture.class);
-        this.game.getAssetManager().load("master2.png", Texture.class);
-        this.game.getAssetManager().load("master3.png", Texture.class);
-        this.game.getAssetManager().load("master4.png", Texture.class);
-        this.game.getAssetManager().load("master5.png", Texture.class);
-        this.game.getAssetManager().load("master6.png", Texture.class);
-        this.game.getAssetManager().load("master7.png", Texture.class);
-
-        this.game.getAssetManager().load("chall1.png", Texture.class);
-        this.game.getAssetManager().load("chall2.png", Texture.class);
-        this.game.getAssetManager().load("chall3.png", Texture.class);
-        this.game.getAssetManager().load("chall4.png", Texture.class);
-        this.game.getAssetManager().load("chall5.png", Texture.class);
-        this.game.getAssetManager().load("chall6.png", Texture.class);
-        this.game.getAssetManager().load("chall7.png", Texture.class);
-
-
-
-
-        this.game.getAssetManager().load("backg.png", Texture.class);
-    this.game.getAssetManager().finishLoading();
-
-    Texture txt = game.getAssetManager().get("backg.png");
-
-    x2 = -txt.getWidth();
     }
 
 

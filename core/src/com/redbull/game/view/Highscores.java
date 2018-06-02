@@ -48,7 +48,7 @@ public class Highscores extends ScreenAdapter {
 
 
 
-        Texture texture = new Texture(Gdx.files.internal("winners.png"));
+        Texture texture = this.game.getAssetManager().get("winners.png");
         Image back = new Image(texture);
         float scaleFactor = (Gdx.graphics.getHeight()) / back.getHeight();
         back.setSize(scaleFactor * back.getWidth(), scaleFactor * back.getHeight());

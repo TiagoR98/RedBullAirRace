@@ -48,7 +48,7 @@ public class GameOver extends ScreenAdapter {
         mySkin = new Skin(Gdx.files.internal("skin/clean-crispy-ui.json"));
 
 
-        Texture texture = new Texture(Gdx.files.internal("backg.png"));
+        Texture texture = this.game.getAssetManager().get("backg.png");
         Image back = new Image(texture);
         float scaleFactor = (Gdx.graphics.getHeight()) / back.getHeight();
         back.setSize(scaleFactor * back.getWidth(), scaleFactor * back.getHeight());

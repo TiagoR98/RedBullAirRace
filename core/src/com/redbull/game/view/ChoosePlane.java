@@ -40,14 +40,14 @@ public class ChoosePlane extends ScreenAdapter {
         mySkin = new Skin(Gdx.files.internal("skin/clean-crispy-ui.json"));
 
 
-        Texture texture = new Texture(Gdx.files.internal("backgmenu.png"));
+        Texture texture = this.game.getAssetManager().get("backgmenu.png");
         Image back = new Image(texture);
         float scaleFactor = (Gdx.graphics.getHeight()) / back.getHeight();
         back.setSize(scaleFactor * back.getWidth(), scaleFactor * back.getHeight());
         back.setPosition(Gdx.graphics.getWidth()/3 - back.getWidth()/2, 0);
         stage.addActor(back);
 
-        Drawable drawable = new TextureRegionDrawable(new TextureRegion(new Texture(Gdx.files.internal("masterbutton.png"))));
+        Drawable drawable = new TextureRegionDrawable(new TextureRegion((Texture)this.game.getAssetManager().get("masterbutton.png")));
         final ImageButton masterButton = new ImageButton(drawable);
         masterButton.addListener(new InputHandler(this.game){
             @Override
@@ -75,7 +75,7 @@ public class ChoosePlane extends ScreenAdapter {
         masterButton.setPosition(col_width*6-masterButton.getWidth()/2,row_height*7);
         stage.addActor(masterButton);
 
-        Drawable drawable2 = new TextureRegionDrawable(new TextureRegion(new Texture(Gdx.files.internal("challbutton.png"))));
+        Drawable drawable2 = new TextureRegionDrawable(new TextureRegion((Texture)this.game.getAssetManager().get("challbutton.png")));
         final ImageButton challengerButton = new ImageButton(drawable2);
         challengerButton.addListener(new InputHandler(this.game){
             @Override

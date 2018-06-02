@@ -34,19 +34,20 @@ public class MainMenu extends ScreenAdapter {
 
     public MainMenu (final RedBullGame game) {
         this.game=game;
+        this.game.loadAssets();
         stage = new Stage(new ScreenViewport());
         Gdx.input.setInputProcessor(stage);
         mySkin = new Skin(Gdx.files.internal("skin/clean-crispy-ui.json"));
 
 
-        Texture texture = new Texture(Gdx.files.internal("backgmenu.png"));
+        Texture texture = this.game.getAssetManager().get("backgmenu.png");
         Image back = new Image(texture);
         float scaleFactor = (Gdx.graphics.getHeight()) / back.getHeight();
         back.setSize(scaleFactor * back.getWidth(), scaleFactor * back.getHeight());
         back.setPosition(Gdx.graphics.getWidth()/3 - back.getWidth()/2, 0);
         stage.addActor(back);
 
-        Texture texture2 = new Texture(Gdx.files.internal("rbarlogowht.png"));
+        Texture texture2 = this.game.getAssetManager().get("rbarlogowht.png");
         Image rbarlogo = new Image(texture2);
         scaleFactor = (float) ((Gdx.graphics.getWidth() * 0.8) / rbarlogo.getWidth());
         rbarlogo.setSize(scaleFactor*rbarlogo.getWidth(),scaleFactor*rbarlogo.getHeight());
