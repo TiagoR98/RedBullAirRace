@@ -55,6 +55,7 @@ public class SubmitScore extends ScreenAdapter {
 
         txtUsername = new TextField("", mySkin);
         txtUsername.setMessageText("username");
+        txtUsername.setMaxLength(12);
         txtUsername.setSize(col_width*6,row_height);
         txtUsername.setPosition(col_width*6-txtUsername.getWidth()/2,row_height*6);
         stage.addActor(txtUsername);
