@@ -34,7 +34,6 @@ public class MainMenu extends ScreenAdapter {
 
     public MainMenu (final RedBullGame game) {
         this.game=game;
-        this.game.loadAssets();
         stage = new Stage(new ScreenViewport());
         Gdx.input.setInputProcessor(stage);
         mySkin = new Skin(Gdx.files.internal("skin/clean-crispy-ui.json"));

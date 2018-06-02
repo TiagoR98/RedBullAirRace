@@ -41,6 +41,7 @@ public class RedBullGame extends Game {
 
 		font = new BitmapFont();
 		font.setColor(Color.RED);
+		this.loadAssets();
 
 		MainMenu();
 
