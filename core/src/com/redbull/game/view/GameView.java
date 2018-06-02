@@ -3,6 +3,7 @@ package com.redbull.game.view;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -106,6 +107,15 @@ public class GameView extends ScreenAdapter {
 
             }
         }));
+
+        Music smokeOn;
+        if(GameModel.getInstance().isActiveMaster())
+            smokeOn = game.getAssetManager().get("smokeonsonka.mp3");
+        else
+            smokeOn = game.getAssetManager().get("smokeon.mp3");
+
+        smokeOn.setLooping(false);
+        smokeOn.play();
 
 
     }

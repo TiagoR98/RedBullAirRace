@@ -3,6 +3,7 @@ package com.redbull.game;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -178,6 +179,9 @@ public class RedBullGame extends Game {
 		this.getAssetManager().load("skin/clean-crispy-ui.json", Skin.class);
 		this.getAssetManager().load("skin2/clean-crispy-ui.json", Skin.class);
 		this.getAssetManager().load("skin3/clean-crispy-ui.json", Skin.class);
+
+		this.getAssetManager().load("smokeon.mp3", Music.class);
+		this.getAssetManager().load("smokeonsonka.mp3", Music.class);
 
 
 
