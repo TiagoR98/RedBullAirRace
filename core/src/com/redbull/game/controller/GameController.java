@@ -40,7 +40,7 @@ public class GameController implements ContactListener{
 
 
     private GameController(){
-        world = new World(new Vector2(0, -30f*GameModel.getInstance().getActivePlane().getPlaneLinearCompensate()), true);
+        world = new World(new Vector2(0, -35f*GameModel.getInstance().getActivePlane().getPlaneLinearCompensate()), true);
 
         planeBody = new PlaneBody(world, GameModel.getInstance().getActivePlane());
 
