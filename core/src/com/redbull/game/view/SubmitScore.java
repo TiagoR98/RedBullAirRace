@@ -46,7 +46,7 @@ public class SubmitScore extends ScreenAdapter {
         labelSkin = new Skin(Gdx.files.internal("skin3/clean-crispy-ui.json"));
 
 
-        Texture texture = this.game.getAssetManager().get(" backg.png");
+        Texture texture = this.game.getAssetManager().get("backg.png");
         Image back = new Image(texture);
         float scaleFactor = (Gdx.graphics.getHeight()) / back.getHeight();
         back.setSize(scaleFactor * back.getWidth(), scaleFactor * back.getHeight());
