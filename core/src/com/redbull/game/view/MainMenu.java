@@ -82,7 +82,9 @@ public class MainMenu extends ScreenAdapter {
             public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
                 try {
                     this.getGame().highscores();
-                }catch (Exception e){}
+                }catch (Exception e){
+                   // outputLabel.setText("Connection Error");
+                }
             }
 
             @Override

@@ -1,5 +1,7 @@
 package com.redbull.game;
 
+import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
@@ -79,7 +81,7 @@ public class RedBullGame extends Game {
     }
 
     public JSONArray getHighScores(){
-		try{
+		try {
 			HttpClient client = new DefaultHttpClient();
 			HttpGet request = new HttpGet("http://redbullairrace.000webhostapp.com/selectScores.php?limit=10");
 			HttpResponse response = client.execute(request);
@@ -93,23 +95,15 @@ public class RedBullGame extends Game {
 			JSONArray convResponse = new JSONArray(rd.readLine());
 
 			return convResponse;
-		}catch(Exception e){
-			System.err.println(e.getCause());
-			return null;
-		}
+		}catch (Exception e){return new JSONArray();}
 	}
 
-	public int submitHighScore(String user,Integer score){
-		try{
+	public int submitHighScore(String user,Integer score) throws Exception{
 			HttpClient client = new DefaultHttpClient();
 			HttpGet request = new HttpGet("http://redbullairrace.000webhostapp.com/insertScore.php?username="+user+"&score="+score.toString());
 			HttpResponse response = client.execute(request);
 			return 0;
 
-		}catch(Exception e){
-			System.err.println(e.getCause());
-			return -1;
-		}
 	}
 
 	public void startGame(){

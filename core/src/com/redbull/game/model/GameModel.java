@@ -110,7 +110,7 @@ public class GameModel {
             listMaster.add("master5.png");
             listMaster.add("master6.png");
 
-        masterPlane = new PlaneModel(8, "master1.png",listMaster,"master7.png",1.5f);
+        masterPlane = new PlaneModel(8, "master1.png",listMaster,"master7.png",1.6f);
         setChallengerPlane();
 
     }

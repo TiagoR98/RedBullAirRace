@@ -38,15 +38,15 @@ public class Highscores extends ScreenAdapter {
     FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("The Outbox St.ttf"));
     FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
     BitmapFont font;
+    JSONArray scores;
 
-    public Highscores (final RedBullGame game) {
+    public Highscores (final RedBullGame game){
         this.game=game;
         stage = new Stage(new ScreenViewport());
         Gdx.input.setInputProcessor(stage);
         mySkin = this.game.getAssetManager().get("skin/clean-crispy-ui.json");
         whiteSkin = this.game.getAssetManager().get("skin2/clean-crispy-ui.json");
         labelSkin = new Skin(Gdx.files.internal("skin3/clean-crispy-ui.json"));
-
 
 
         Texture texture = this.game.getAssetManager().get("winners.png");
@@ -58,7 +58,10 @@ public class Highscores extends ScreenAdapter {
 
 
 
-        JSONArray scores = game.getHighScores();
+        scores = new JSONArray();
+        scores = game.getHighScores();
+
+
         Table table = new Table();
         table.setSkin(whiteSkin);
         table.setFillParent(true);
@@ -139,5 +142,7 @@ public class Highscores extends ScreenAdapter {
         font.draw(game.getBatch(), "Highscores",Gdx.graphics.getWidth()/2-layout.width/2,(Gdx.graphics.getHeight()/12)*11);
         this.game.getBatch().end();
     }
+
+
 
 }
