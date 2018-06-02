@@ -3,9 +3,6 @@ com.badlogic.gdx.graphics.g2d.BitmapFont: {
 	font: {
 		file: outbox-wht.fnt
 	}
-	title-font: {
-		file: outbox-wht-title.fnt
-	}
 }
 com.badlogic.gdx.graphics.Color: {
 	color: {

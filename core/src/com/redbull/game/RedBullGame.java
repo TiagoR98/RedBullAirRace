@@ -183,6 +183,7 @@ public class RedBullGame extends Game {
 
 		this.getAssetManager().load("skin/clean-crispy-ui.json", Skin.class);
 		this.getAssetManager().load("skin2/clean-crispy-ui.json", Skin.class);
+		this.getAssetManager().load("skin3/clean-crispy-ui.json", Skin.class);
 
 
 

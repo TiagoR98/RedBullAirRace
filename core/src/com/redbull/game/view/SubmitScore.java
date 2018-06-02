@@ -26,7 +26,7 @@ public class SubmitScore extends ScreenAdapter {
 
     private final RedBullGame game;
     private Stage stage;
-    Skin mySkin;
+    Skin mySkin,labelSkin;
     int Help_Guides = 12;
     int row_height = Gdx.graphics.getHeight() / 12;
     int col_width = Gdx.graphics.getWidth() / 12;
@@ -43,6 +43,7 @@ public class SubmitScore extends ScreenAdapter {
         stage = new Stage(new ScreenViewport());
         Gdx.input.setInputProcessor(stage);
         mySkin = this.game.getAssetManager().get("skin/clean-crispy-ui.json");
+        labelSkin = new Skin(Gdx.files.internal("skin3/clean-crispy-ui.json"));
 
 
         Texture texture = this.game.getAssetManager().get("backg.png");
@@ -98,7 +99,7 @@ public class SubmitScore extends ScreenAdapter {
 
 
 
-        outputLabel = new Label("",mySkin,"default");
+        outputLabel = new Label("",labelSkin,"default");
         outputLabel.setSize(Gdx.graphics.getWidth(),row_height);
         outputLabel.setPosition(0,row_height);
         outputLabel.setAlignment(Align.center);

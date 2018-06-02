@@ -26,7 +26,7 @@ public class MainMenu extends ScreenAdapter {
 
     private final RedBullGame game;
     private Stage stage;
-    Skin mySkin;
+    Skin mySkin,labelSkin;
     int Help_Guides = 12;
     int row_height = Gdx.graphics.getHeight() / 12;
     int col_width = Gdx.graphics.getWidth() / 12;
@@ -37,6 +37,7 @@ public class MainMenu extends ScreenAdapter {
         stage = new Stage(new ScreenViewport());
         Gdx.input.setInputProcessor(stage);
         mySkin = this.game.getAssetManager().get("skin/clean-crispy-ui.json");
+        labelSkin = this.game.getAssetManager().get("skin3/clean-crispy-ui.json");
 
 
         Texture texture = this.game.getAssetManager().get("backgmenu.png");
@@ -97,9 +98,9 @@ public class MainMenu extends ScreenAdapter {
 
 
 
-        outputLabel = new Label("",mySkin,"default");
-        outputLabel.setSize(Gdx.graphics.getWidth(),row_height);
-        outputLabel.setPosition(0,row_height);
+        outputLabel = new Label("",labelSkin,"default");
+        outputLabel.setSize(Gdx.graphics.getWidth(),row_height*1.5f);
+        outputLabel.setPosition(0,row_height/2);
         outputLabel.setAlignment(Align.center);
         stage.addActor(outputLabel);
 
