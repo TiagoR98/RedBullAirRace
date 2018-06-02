@@ -43,8 +43,8 @@ public class Highscores extends ScreenAdapter {
         this.game=game;
         stage = new Stage(new ScreenViewport());
         Gdx.input.setInputProcessor(stage);
-        mySkin = new Skin(Gdx.files.internal("skin/clean-crispy-ui.json"));
-        whiteSkin = new Skin(Gdx.files.internal("skin2/clean-crispy-ui.json"));
+        mySkin = this.game.getAssetManager().get("skin/clean-crispy-ui.json");
+        whiteSkin = this.game.getAssetManager().get("skin2/clean-crispy-ui.json");
 
 
 

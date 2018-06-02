@@ -75,7 +75,7 @@ public class GameView extends ScreenAdapter {
         fontSmall=generator.generateFont(parameter);
 
         effect = new ParticleEffect();
-        effect.load(Gdx.files.internal("smoke.p"), Gdx.files.internal(""));
+        effect.load(Gdx.files.internal("smoke.p"),Gdx.files.internal(""));
 
 
 

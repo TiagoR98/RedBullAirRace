@@ -35,7 +35,6 @@ public class GameOver extends ScreenAdapter {
     int col_width = Gdx.graphics.getWidth() / 12;
     private Label outputLabel;
     GlyphLayout layout;
-    TextField txtUsername;
 
     FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("The Outbox St.ttf"));
     FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
@@ -45,7 +44,7 @@ public class GameOver extends ScreenAdapter {
         this.game=game;
         stage = new Stage(new ScreenViewport());
         Gdx.input.setInputProcessor(stage);
-        mySkin = new Skin(Gdx.files.internal("skin/clean-crispy-ui.json"));
+        mySkin = this.game.getAssetManager().get("skin/clean-crispy-ui.json");
 
 
         Texture texture = this.game.getAssetManager().get("backg.png");

@@ -168,10 +168,7 @@ public class GameModel {
     }
 
     public boolean isActiveMaster(){
-        if(masterPlane == active)
-           return true;
-        else
-          return false;
+        return masterPlane == active;
     }
 
 }

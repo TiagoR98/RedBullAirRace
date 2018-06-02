@@ -36,7 +36,7 @@ public class MainMenu extends ScreenAdapter {
         this.game=game;
         stage = new Stage(new ScreenViewport());
         Gdx.input.setInputProcessor(stage);
-        mySkin = new Skin(Gdx.files.internal("skin/clean-crispy-ui.json"));
+        mySkin = this.game.getAssetManager().get("skin/clean-crispy-ui.json");
 
 
         Texture texture = this.game.getAssetManager().get("backgmenu.png");

@@ -4,8 +4,11 @@ import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.ParticleEffect;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.redbull.game.view.ChoosePlane;
 import com.redbull.game.view.GameOver;
 import com.redbull.game.view.GameView;
@@ -20,9 +23,9 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONArray;
 
+import java.awt.Font;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.sql.SQLException;
 
 
 public class RedBullGame extends Game {
@@ -177,6 +180,10 @@ public class RedBullGame extends Game {
 		this.getAssetManager().load("challbutton.png", Texture.class);
 
 		this.getAssetManager().load("rbarlogowht.png", Texture.class);
+
+		this.getAssetManager().load("skin/clean-crispy-ui.json", Skin.class);
+		this.getAssetManager().load("skin2/clean-crispy-ui.json", Skin.class);
+
 
 
 		this.getAssetManager().finishLoading();

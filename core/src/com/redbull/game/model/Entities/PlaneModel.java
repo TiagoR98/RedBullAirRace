@@ -77,4 +77,4 @@ public class PlaneModel extends EntityModel {
        else textIndice = 0;
    }
 
-};
+}
