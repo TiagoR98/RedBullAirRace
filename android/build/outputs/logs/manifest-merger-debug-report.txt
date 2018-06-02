@@ -40,7 +40,7 @@ ADDED from /Users/tiaguinho/GitHub/RedBullAirRace/android/AndroidManifest.xml:7:
 	android:label
 		ADDED from /Users/tiaguinho/GitHub/RedBullAirRace/android/AndroidManifest.xml:10:9-41
 	android:icon
-		ADDED from /Users/tiaguinho/GitHub/RedBullAirRace/android/AndroidManifest.xml:9:9-45
+		ADDED from /Users/tiaguinho/GitHub/RedBullAirRace/android/AndroidManifest.xml:9:9-43
 	android:allowBackup
 		ADDED from /Users/tiaguinho/GitHub/RedBullAirRace/android/AndroidManifest.xml:8:9-35
 	android:theme
