@@ -182,6 +182,7 @@ public class RedBullGame extends Game {
 
 		this.getAssetManager().load("smokeon.mp3", Music.class);
 		this.getAssetManager().load("smokeonsonka.mp3", Music.class);
+		this.getAssetManager().load("passing.mp3", Music.class);
 
 
 

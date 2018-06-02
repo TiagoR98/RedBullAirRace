@@ -56,6 +56,7 @@ public class GameView extends ScreenAdapter {
 
     TextureAtlas particleAtlas; //<-load some atlas with your particle assets in
     ParticleEffect effect;
+    Music smokeOn,passing;
 
     public GameView(RedBullGame game){
         shapeRenderer = new ShapeRenderer();
@@ -108,15 +109,17 @@ public class GameView extends ScreenAdapter {
             }
         }));
 
-        Music smokeOn;
         if(GameModel.getInstance().isActiveMaster())
             smokeOn = game.getAssetManager().get("smokeonsonka.mp3");
         else
             smokeOn = game.getAssetManager().get("smokeon.mp3");
 
+        smokeOn.setVolume(1);
         smokeOn.setLooping(false);
         smokeOn.play();
 
+        passing = game.getAssetManager().get("passing.mp3");
+        passing.setVolume(0.3f);
 
     }
 
@@ -171,9 +174,14 @@ public class GameView extends ScreenAdapter {
             if (((pylonSprite.getX()+pylonSprite.getWidth()/2) <= plane.getX()*1.2*METER_TO_PIXEL_H) &&
                     ((pylonSprite.getX()+pylonSprite.getWidth()/2) >= plane.getX()*1.2*METER_TO_PIXEL_H - plane.getVelocity()))
                 if (checkPylonPassage(pylon, plane) == -1) {
+                    passing.stop();
                     this.game.gameOver();
                 }else{
                     game.scored();
+                    //if(!smokeOn.isPlaying()) {
+                        passing.stop();
+                        passing.play();
+                    //}
                 }
             }
 
