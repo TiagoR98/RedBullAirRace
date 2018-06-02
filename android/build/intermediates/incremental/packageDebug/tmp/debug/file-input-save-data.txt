@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Sat Jun 02 20:19:53 WEST 2018
+#Sat Jun 02 20:59:43 WEST 2018
 60.set=ASSET
 52.set=ASSET
 53.base=/Users/tiaguinho/GitHub/RedBullAirRace/android/build/intermediates/assets/debug
