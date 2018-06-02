@@ -7,6 +7,8 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
+import com.badlogic.gdx.graphics.g2d.ParticleEffect;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Matrix4;
@@ -50,6 +52,10 @@ public class GameView extends ScreenAdapter {
     private OrthographicCamera camera;
     ShapeRenderer shapeRenderer;
 
+
+    TextureAtlas particleAtlas; //<-load some atlas with your particle assets in
+    ParticleEffect effect;
+
     public GameView(RedBullGame game){
         shapeRenderer = new ShapeRenderer();
         this.game = game;
@@ -65,6 +71,10 @@ public class GameView extends ScreenAdapter {
 
         parameter.size = 30;
         fontSmall=generator.generateFont(parameter);
+
+        effect = new ParticleEffect();
+        effect.load(Gdx.files.internal("smoke.p"), Gdx.files.internal(""));
+
 
 
 
@@ -153,12 +163,20 @@ public class GameView extends ScreenAdapter {
         game.getBatch().begin();
         drawBackground((int)(GameModel.getInstance().getActivePlane().getVelocity()*backgroundParallax));
 
+
+
+
         PlaneModel plane = GameModel.getInstance().getActivePlane();
         Sprite pSprite = new PlaneView(game).createSprite(game);
         pSprite.setSize(Gdx.graphics.getWidth()/3,Gdx.graphics.getWidth()/3);
         pSprite.setOriginCenter();
         pSprite.setPosition(((plane.getX()*METER_TO_PIXEL_H)-pSprite.getWidth()/2),(plane.getY()*METER_TO_PIXEL_V)-pSprite.getHeight()/2);
         pSprite.setRotation(plane.getRotation());
+
+        effect.start();
+        effect.setPosition(pSprite.getX()+pSprite.getWidth()/2,pSprite.getY()+pSprite.getHeight()/2);
+        effect.draw(game.getBatch(), delta);
+
         pSprite.draw(game.getBatch());
 
         shapeRenderer.setColor(Color.BLACK);
@@ -196,6 +214,8 @@ public class GameView extends ScreenAdapter {
 
         //font.draw(game.getBatch(), "Fuck JAS", plane.getX()*METER_TO_PIXEL_H,plane.getY()*METER_TO_PIXEL_V);
         font.draw(game.getBatch(), Integer.toString(game.getScore()), ((Gdx.graphics.getWidth() / 2) - (layout.width / 2)), (float) (Gdx.graphics.getHeight()*0.9));
+
+
         game.getBatch().end();
 
 
