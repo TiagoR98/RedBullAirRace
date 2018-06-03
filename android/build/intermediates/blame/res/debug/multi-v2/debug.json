@@ -1,34 +1,17 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\Ambiente de Trabalho\\LPOO\\RedBullAirRace\\android\\build\\intermediates\\res\\merged\\debug\\values_values.arsc.flat",
+            "outputFile": "/Users/tiaguinho/GitHub/RedBullAirRace/android/build/intermediates/res/merged/debug/values_values.arsc.flat",
             "map": [
                 {
-                    "source": "D:\\Ambiente de Trabalho\\LPOO\\RedBullAirRace\\android\\res\\values\\strings.xml",
-                    "from": {
-                        "startLines": "3",
-                        "startColumns": "4",
-                        "startOffsets": "59",
-                        "endColumns": "54",
-                        "endOffsets": "109"
-                    },
-                    "to": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "54",
-                        "endOffsets": "105"
-                    }
-                },
-                {
-                    "source": "D:\\Ambiente de Trabalho\\LPOO\\RedBullAirRace\\android\\res\\values\\styles.xml",
+                    "source": "/Users/tiaguinho/GitHub/RedBullAirRace/android/res/values/styles.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
-                        "startOffsets": "19",
+                        "startOffsets": "17",
                         "endLines": "9",
                         "endColumns": "12",
-                        "endOffsets": "484"
+                        "endOffsets": "475"
                     },
                     "to": {
                         "startLines": "3",
@@ -37,6 +20,23 @@
                         "endLines": "10",
                         "endColumns": "12",
                         "endOffsets": "568"
+                    }
+                },
+                {
+                    "source": "/Users/tiaguinho/GitHub/RedBullAirRace/android/res/values/strings.xml",
+                    "from": {
+                        "startLines": "3",
+                        "startColumns": "4",
+                        "startOffsets": "56",
+                        "endColumns": "54",
+                        "endOffsets": "106"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "54",
+                        "endOffsets": "105"
                     }
                 }
             ]

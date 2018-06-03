@@ -23,22 +23,17 @@ public class LoadingScreen extends ScreenAdapter {
     private static LoadingScreen instance;
 
     private final RedBullGame game;
-    private Stage stage;
-    Skin mySkin,labelSkin;
     int Help_Guides = 12;
     int row_height = Gdx.graphics.getHeight() / 12;
     int col_width = Gdx.graphics.getWidth() / 12;
-    private Label outputLabel;
     ProgressBar pbar;
     private float percent=0;
     Pixmap pixmap;
-    TextureRegionDrawable drawable,drawable2;
+    TextureRegionDrawable drawable;
     ProgressBar.ProgressBarStyle progressBarStyle;
 
     public LoadingScreen(final RedBullGame game) {
         this.game=game;
-        stage = new Stage(new ScreenViewport());
-        Gdx.input.setInputProcessor(stage);
 
         createProgressBar();
 

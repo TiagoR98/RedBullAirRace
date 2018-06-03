@@ -139,7 +139,7 @@ public class RedBullGame extends Game {
 		setScreen(new LoadingScreen(this));
 	}
 
-	public void seeRules(){
+	public void RulesScreen(){
 		setScreen(new RulesScreen(this));
 	}
 
@@ -197,6 +197,9 @@ public class RedBullGame extends Game {
 		this.getAssetManager().load("challbutton.png", Texture.class);
 
 		this.getAssetManager().load("rbarlogowht.png", Texture.class);
+
+		this.getAssetManager().load("rulesbackg.png",Texture.class);
+		this.getAssetManager().load("rules.png",Texture.class);
 	}
 
 	private void loadImgPlanes() {
