@@ -4,11 +4,14 @@
 - Tiago José Antunes Ribeiro | 201605619 | up201605619@fe.up.pt
 - Bruno Edgar Évora Rebelo Oliveira | 201605516 | up201605516@fe.up.pt
 
-## Entega Final
+## Entrega Final
 ### Diagramas UML
 
 #### Classes
-![Classes](/images/UML.bmp)
+![Classes](/images/uml1.bmp)
+![Classes](/images/uml2.bmp)
+![Classes](/images/uml3.bmp)
+![Classes](/images/uml4.bmp)
 
 #### Casos de utilização
 ![casos](/images/use_case.bmp)
@@ -36,12 +39,15 @@ Escolher Avião | Jogo | Game Over
 Submeter HighScore |
 -------------------|
 ![submit_highscore](/images/submit_highscore.png)|
-
-###Manual de Instruções
+u
+### Manual de Instruções
 ![Como_Jogar](/android/assets/Manual/manrules.png)
 ![Screenshots](/android/assets/Manual/compilacao.png)
 
-###Dificuldades
+### Base de Dados (Highscores)
+* Para armazenar as Highscores foi criada uma base de dados MySQL num servidor remoto, sendo que a comunicação com a aplicação é feita usando ficheiros PHP, acedidos através da classe HTTPRequest do Java.
+
+### Dificuldades
 * Conseguir carregar todos os assets do jogo apenas no início, em vez de os ir carregando repetidamente, o que causava loading screens e eventualmente um crash por falta de memória.
 
 
@@ -54,8 +60,6 @@ Submeter HighScore |
 
 -Por fim, perceber como construir um jogo em libgdx em android, lidando assim pela primeira vez com interfaces, resoluções, toques, gestos,partículas, fontes e assets.
 
-###Tempo dispendido e distribuição
+### Tempo dispendido e distribuição
 * O trabalho foi realizado durante as aulas laboratorias dedicadas ao projeto e durante as últimas duas semanas antes da data de entrega.
 * Durante as aulas o grupo trabalhou em conjunto nas mesmas tarefas. Na última fase do trabalho, o elemento Tiago Ribeiro liderou o processo de desenvolvimento, contanto com a colaboração do Bruno Oliveira.
-
-###Tempo dispendido e distribuição
