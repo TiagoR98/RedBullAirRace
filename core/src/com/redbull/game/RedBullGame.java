@@ -152,19 +152,44 @@ public class RedBullGame extends Game {
 	public void scored(){this.score++;}
 
 	public void loadAssets(){
-		this.getAssetManager().load("p1v.png", Texture.class);
-		this.getAssetManager().load("p2v.png", Texture.class);
-		this.getAssetManager().load("p3v.png", Texture.class);
-		this.getAssetManager().load("p4v.png", Texture.class);
-		this.getAssetManager().load("p5v.png", Texture.class);
-		this.getAssetManager().load("p6v.png", Texture.class);
-		this.getAssetManager().load("p1a.png", Texture.class);
-		this.getAssetManager().load("p2a.png", Texture.class);
-		this.getAssetManager().load("p3a.png", Texture.class);
-		this.getAssetManager().load("p4a.png", Texture.class);
-		this.getAssetManager().load("p5a.png", Texture.class);
-		this.getAssetManager().load("p6a.png", Texture.class);
+		loadImgPylons();
 
+		loadImgPlanes();
+
+		loadImgs();
+
+		loadSkins();
+
+		loadMusic();
+
+		this.getAssetManager().finishLoading();
+
+	}
+
+	private void loadMusic() {
+		this.getAssetManager().load("smokeon.mp3", Music.class);
+		this.getAssetManager().load("smokeonsonka.mp3", Music.class);
+		this.getAssetManager().load("passing.mp3", Music.class);
+	}
+
+	private void loadSkins() {
+		this.getAssetManager().load("skin/clean-crispy-ui.json", Skin.class);
+		this.getAssetManager().load("skin2/clean-crispy-ui.json", Skin.class);
+		this.getAssetManager().load("skin3/clean-crispy-ui.json", Skin.class);
+	}
+
+	private void loadImgs() {
+		this.getAssetManager().load("backg.png", Texture.class);
+		this.getAssetManager().load("backgmenu.png", Texture.class);
+		this.getAssetManager().load("winners.png", Texture.class);
+
+		this.getAssetManager().load("masterbutton.png", Texture.class);
+		this.getAssetManager().load("challbutton.png", Texture.class);
+
+		this.getAssetManager().load("rbarlogowht.png", Texture.class);
+	}
+
+	private void loadImgPlanes() {
 		this.getAssetManager().load("master1.png", Texture.class);
 		this.getAssetManager().load("master2.png", Texture.class);
 		this.getAssetManager().load("master3.png", Texture.class);
@@ -180,25 +205,20 @@ public class RedBullGame extends Game {
 		this.getAssetManager().load("chall5.png", Texture.class);
 		this.getAssetManager().load("chall6.png", Texture.class);
 		this.getAssetManager().load("chall7.png", Texture.class);
+	}
 
-		this.getAssetManager().load("backg.png", Texture.class);
-		this.getAssetManager().load("backgmenu.png", Texture.class);
-		this.getAssetManager().load("winners.png", Texture.class);
-
-		this.getAssetManager().load("masterbutton.png", Texture.class);
-		this.getAssetManager().load("challbutton.png", Texture.class);
-
-		this.getAssetManager().load("rbarlogowht.png", Texture.class);
-
-		this.getAssetManager().load("skin/clean-crispy-ui.json", Skin.class);
-		this.getAssetManager().load("skin2/clean-crispy-ui.json", Skin.class);
-		this.getAssetManager().load("skin3/clean-crispy-ui.json", Skin.class);
-
-		this.getAssetManager().load("smokeon.mp3", Music.class);
-		this.getAssetManager().load("smokeonsonka.mp3", Music.class);
-		this.getAssetManager().load("passing.mp3", Music.class);
-
-		this.getAssetManager().finishLoading();
-
+	private void loadImgPylons() {
+		this.getAssetManager().load("p1v.png", Texture.class);
+		this.getAssetManager().load("p2v.png", Texture.class);
+		this.getAssetManager().load("p3v.png", Texture.class);
+		this.getAssetManager().load("p4v.png", Texture.class);
+		this.getAssetManager().load("p5v.png", Texture.class);
+		this.getAssetManager().load("p6v.png", Texture.class);
+		this.getAssetManager().load("p1a.png", Texture.class);
+		this.getAssetManager().load("p2a.png", Texture.class);
+		this.getAssetManager().load("p3a.png", Texture.class);
+		this.getAssetManager().load("p4a.png", Texture.class);
+		this.getAssetManager().load("p5a.png", Texture.class);
+		this.getAssetManager().load("p6a.png", Texture.class);
 	}
 }

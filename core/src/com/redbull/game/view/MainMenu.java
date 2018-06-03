@@ -38,40 +38,30 @@ public class MainMenu extends ScreenAdapter {
         labelSkin = this.game.getAssetManager().get("skin3/clean-crispy-ui.json");
 
 
-        Texture texture = this.game.getAssetManager().get("backgmenu.png");
-        Image back = new Image(texture);
-        float scaleFactor = (Gdx.graphics.getHeight()) / back.getHeight();
-        back.setSize(scaleFactor * back.getWidth(), scaleFactor * back.getHeight());
-        back.setPosition(Gdx.graphics.getWidth()/3 - back.getWidth()/2, 0);
-        stage.addActor(back);
+        createBackground();
+        float scaleFactor;
 
-        Texture texture2 = this.game.getAssetManager().get("rbarlogowht.png");
-        Image rbarlogo = new Image(texture2);
-        scaleFactor = (float) ((Gdx.graphics.getWidth() * 0.8) / rbarlogo.getWidth());
-        rbarlogo.setSize(scaleFactor*rbarlogo.getWidth(),scaleFactor*rbarlogo.getHeight());
-        rbarlogo.setPosition(col_width*6-rbarlogo.getWidth()/2, row_height*9);
-        stage.addActor(rbarlogo);
+        createLogoRbar();
 
+        createButtonStart();
 
-        Button button2 = new TextButton("Start Game",mySkin);
-        button2.setSize(col_width*6,row_height*1.5f);
-        button2.setPosition(col_width*6-button2.getWidth()/2,row_height*6);
-        button2.addListener(new InputHandler(this.game){
-            @Override
-            public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
-                try {
-                    this.getGame().choosePlane();
-                }catch (Exception e){}
-            }
+        createButtonHighscores();
 
-            @Override
-            public boolean touchDown (InputEvent event, float x, float y, int pointer, int button) {
-                outputLabel.setText("Loading...");
-                return true;
-            }
-        });
-        stage.addActor(button2);
+        createLabelOut();
 
+        GameModel.getInstance();
+        GameController.getInstance();
+    }
+
+    private void createLabelOut() {
+        outputLabel = new Label("",labelSkin,"default");
+        outputLabel.setSize(Gdx.graphics.getWidth(),row_height*1.5f);
+        outputLabel.setPosition(0,row_height/2);
+        outputLabel.setAlignment(Align.center);
+        stage.addActor(outputLabel);
+    }
+
+    private void createButtonHighscores() {
         Button button3 = new TextButton("Highscores",mySkin);
         button3.setSize(col_width*6,row_height*1.5f);
         button3.setPosition(col_width*6-button3.getWidth()/2,row_height*3);
@@ -92,20 +82,45 @@ public class MainMenu extends ScreenAdapter {
             }
         });
         stage.addActor(button3);
+    }
 
+    private void createButtonStart() {
+        Button button2 = new TextButton("Start Game",mySkin);
+        button2.setSize(col_width*6,row_height*1.5f);
+        button2.setPosition(col_width*6-button2.getWidth()/2,row_height*6);
+        button2.addListener(new InputHandler(this.game){
+            @Override
+            public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
+                try {
+                    this.getGame().choosePlane();
+                }catch (Exception e){}
+            }
 
+            @Override
+            public boolean touchDown (InputEvent event, float x, float y, int pointer, int button) {
+                outputLabel.setText("Loading...");
+                return true;
+            }
+        });
+        stage.addActor(button2);
+    }
 
+    private void createLogoRbar() {
+        float scaleFactor;Texture texture2 = this.game.getAssetManager().get("rbarlogowht.png");
+        Image rbarlogo = new Image(texture2);
+        scaleFactor = (float) ((Gdx.graphics.getWidth() * 0.8) / rbarlogo.getWidth());
+        rbarlogo.setSize(scaleFactor*rbarlogo.getWidth(),scaleFactor*rbarlogo.getHeight());
+        rbarlogo.setPosition(col_width*6-rbarlogo.getWidth()/2, row_height*9);
+        stage.addActor(rbarlogo);
+    }
 
-
-
-        outputLabel = new Label("",labelSkin,"default");
-        outputLabel.setSize(Gdx.graphics.getWidth(),row_height*1.5f);
-        outputLabel.setPosition(0,row_height/2);
-        outputLabel.setAlignment(Align.center);
-        stage.addActor(outputLabel);
-
-        GameModel.getInstance();
-        GameController.getInstance();
+    private void createBackground() {
+        Texture texture = this.game.getAssetManager().get("backgmenu.png");
+        Image back = new Image(texture);
+        float scaleFactor = (Gdx.graphics.getHeight()) / back.getHeight();
+        back.setSize(scaleFactor * back.getWidth(), scaleFactor * back.getHeight());
+        back.setPosition(Gdx.graphics.getWidth()/3 - back.getWidth()/2, 0);
+        stage.addActor(back);
     }
 
     public static MainMenu getInstance() {

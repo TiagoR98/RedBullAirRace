@@ -43,43 +43,31 @@ public class Highscores extends ScreenAdapter {
         Gdx.input.setInputProcessor(stage);
         mySkin = this.game.getAssetManager().get("skin/clean-crispy-ui.json");
         whiteSkin = this.game.getAssetManager().get("skin2/clean-crispy-ui.json");
-        labelSkin = new Skin(Gdx.files.internal("skin3/clean-crispy-ui.json"));
+        labelSkin = this.game.getAssetManager().get("skin3/clean-crispy-ui.json");
 
-
-        Texture texture = this.game.getAssetManager().get("winners.png");
-        Image back = new Image(texture);
-        float scaleFactor = (Gdx.graphics.getHeight()) / back.getHeight();
-        back.setSize(scaleFactor * back.getWidth(), scaleFactor * back.getHeight());
-        back.setPosition(Gdx.graphics.getWidth()/2 - back.getWidth()/2, 0);
-        stage.addActor(back);
-
-
+        createBackground();
 
         scores = new JSONArray();
         scores = game.getHighScores();
 
+        createTable();
 
-        Table table = new Table();
-        table.setSkin(whiteSkin);
-        table.setFillParent(true);
-        table.setDebug(false);
-        table.row();
-        table.add("Username").expandX();
-        table.add("Score").expandX();
-        for (int i=0; i < scores.length(); i++) {
-            table.row();
-            try {
-                table.add(scores.getJSONObject(i).getString("username"));
-                table.add(Integer.toString(scores.getJSONObject(i).getInt("score")));
-            }catch (Exception e){
-                System.out.println(e.getCause());
-            }
+        createButtonBack();
 
-        }
-        stage.addActor(table);
+        createOutLable();
 
+        font=this.game.getFont();
+    }
 
+    private void createOutLable() {
+        outputLabel = new Label("",labelSkin,"default");
+        outputLabel.setSize(Gdx.graphics.getWidth(),row_height);
+        outputLabel.setPosition(0,0);
+        outputLabel.setAlignment(Align.center);
+        stage.addActor(outputLabel);
+    }
 
+    private void createButtonBack() {
         Button button2 = new TextButton("Go back",mySkin);
         button2.setSize(col_width*6,row_height*1.5f);
         button2.setPosition(col_width*6-button2.getWidth()/2,row_height);
@@ -98,17 +86,40 @@ public class Highscores extends ScreenAdapter {
             }
         });
         stage.addActor(button2);
+    }
 
+    private void createTable() {
+        Table table = new Table();
+        table.setSkin(whiteSkin);
+        table.setFillParent(true);
+        table.setDebug(false);
+        table.row();
+        table.add("Username").expandX();
+        table.add("Score").expandX();
+        insertDataIntoTable(table);
+        stage.addActor(table);
+    }
 
+    private void insertDataIntoTable(Table table) {
+        for (int i=0; i < scores.length(); i++) {
+            table.row();
+            try {
+                table.add(scores.getJSONObject(i).getString("username"));
+                table.add(Integer.toString(scores.getJSONObject(i).getInt("score")));
+            }catch (Exception e){
+                System.out.println(e.getCause());
+            }
 
+        }
+    }
 
-        outputLabel = new Label("",labelSkin,"default");
-        outputLabel.setSize(Gdx.graphics.getWidth(),row_height);
-        outputLabel.setPosition(0,0);
-        outputLabel.setAlignment(Align.center);
-        stage.addActor(outputLabel);
-
-        font=this.game.getFont();
+    private void createBackground() {
+        Texture texture = this.game.getAssetManager().get("winners.png");
+        Image back = new Image(texture);
+        float scaleFactor = (Gdx.graphics.getHeight()) / back.getHeight();
+        back.setSize(scaleFactor * back.getWidth(), scaleFactor * back.getHeight());
+        back.setPosition(Gdx.graphics.getWidth()/2 - back.getWidth()/2, 0);
+        stage.addActor(back);
     }
 
     public static Highscores getInstance() {

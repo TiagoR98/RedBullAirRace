@@ -39,12 +39,74 @@ public class GameOver extends ScreenAdapter {
         stage = new Stage(new ScreenViewport());
         Gdx.input.setInputProcessor(stage);
         mySkin = this.game.getAssetManager().get("skin/clean-crispy-ui.json");
-        labelSkin = new Skin(Gdx.files.internal("skin3/clean-crispy-ui.json"));
+        labelSkin = this.game.getAssetManager().get("skin3/clean-crispy-ui.json");
 
+        createBackground();
 
-        drawBackground();
+        createButtonRaceAgain();
 
+        createButtonMainMenu();
 
+        createButtonSubmitScore();
+
+        createOutLabel();
+
+        font=this.game.getFont();
+
+    }
+
+    private void createOutLabel() {
+        outputLabel = new Label("",labelSkin,"default");
+        outputLabel.setSize(Gdx.graphics.getWidth(),row_height);
+        outputLabel.setPosition(0,0);
+        outputLabel.setAlignment(Align.center);
+        stage.addActor(outputLabel);
+    }
+
+    private void createButtonSubmitScore() {
+        if(GameModel.getInstance().isActiveMaster()) {
+            Button button3 = new TextButton("Submit Score", mySkin);
+            button3.setSize(col_width * 6, row_height * 1f);
+            button3.setPosition(col_width * 6 - button3.getWidth() / 2, row_height * 1.5f);
+            button3.addListener(new InputHandler(this.game) {
+                @Override
+                public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+                    try {
+                        this.getGame().submitScore();
+                    } catch (Exception e) {
+                    }
+                }
+
+                @Override
+                public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                    return true;
+                }
+            });
+            stage.addActor(button3);
+        }
+    }
+
+    private void createButtonMainMenu() {
+        Button button2 = new TextButton("Return Main Menu",mySkin);
+        button2.setSize(col_width*6,row_height*1.5f);
+        button2.setPosition(col_width*6-button2.getWidth()/2,row_height*3);
+        button2.addListener(new InputHandler(this.game){
+            @Override
+            public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
+                try {
+                    this.getGame().MainMenu();
+                }catch (Exception e){}
+            }
+
+            @Override
+            public boolean touchDown (InputEvent event, float x, float y, int pointer, int button) {
+                return true;
+            }
+        });
+        stage.addActor(button2);
+    }
+
+    private void createButtonRaceAgain() {
         Button button1 = new TextButton("Race Again",mySkin);
         button1.setSize(col_width*6,row_height*1.5f);
         button1.setPosition(col_width*6-button1.getWidth()/2,row_height*5);
@@ -74,58 +136,9 @@ public class GameOver extends ScreenAdapter {
             }
         });
         stage.addActor(button1);
-
-        Button button2 = new TextButton("Return Main Menu",mySkin);
-        button2.setSize(col_width*6,row_height*1.5f);
-        button2.setPosition(col_width*6-button2.getWidth()/2,row_height*3);
-        button2.addListener(new InputHandler(this.game){
-            @Override
-            public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
-                try {
-                    this.getGame().MainMenu();
-                }catch (Exception e){}
-            }
-
-            @Override
-            public boolean touchDown (InputEvent event, float x, float y, int pointer, int button) {
-                return true;
-            }
-        });
-        stage.addActor(button2);
-
-        if(GameModel.getInstance().isActiveMaster()) {
-            Button button3 = new TextButton("Submit Score", mySkin);
-            button3.setSize(col_width * 6, row_height * 1f);
-            button3.setPosition(col_width * 6 - button3.getWidth() / 2, row_height * 1.5f);
-            button3.addListener(new InputHandler(this.game) {
-                @Override
-                public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                    try {
-                        this.getGame().submitScore();
-                    } catch (Exception e) {
-                    }
-                }
-
-                @Override
-                public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                    return true;
-                }
-            });
-            stage.addActor(button3);
-        }
-
-
-        outputLabel = new Label("",labelSkin,"default");
-        outputLabel.setSize(Gdx.graphics.getWidth(),row_height);
-        outputLabel.setPosition(0,0);
-        outputLabel.setAlignment(Align.center);
-        stage.addActor(outputLabel);
-
-        font=this.game.getFont();
-
     }
 
-    private void drawBackground() {
+    private void createBackground() {
         Texture texture = this.game.getAssetManager().get("backg.png");
         Image back = new Image(texture);
         float scaleFactor = (Gdx.graphics.getHeight()) / back.getHeight();

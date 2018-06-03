@@ -40,24 +40,50 @@ public class SubmitScore extends ScreenAdapter {
         stage = new Stage(new ScreenViewport());
         Gdx.input.setInputProcessor(stage);
         mySkin = this.game.getAssetManager().get("skin/clean-crispy-ui.json");
-        labelSkin = new Skin(Gdx.files.internal("skin3/clean-crispy-ui.json"));
+        labelSkin = this.game.getAssetManager().get("skin3/clean-crispy-ui.json");
 
+        createBackground();
 
-        Texture texture = this.game.getAssetManager().get("backg.png");
-        Image back = new Image(texture);
-        float scaleFactor = (Gdx.graphics.getHeight()) / back.getHeight();
-        back.setSize(scaleFactor * back.getWidth(), scaleFactor * back.getHeight());
-        back.setPosition(Gdx.graphics.getWidth()/3 - back.getWidth()/2, 0);
-        stage.addActor(back);
+        createTextField();
 
-        txtUsername = new TextField("", mySkin);
-        txtUsername.setMessageText("username");
-        txtUsername.setMaxLength(12);
-        txtUsername.setSize(col_width*6,row_height);
-        txtUsername.setPosition(col_width*6-txtUsername.getWidth()/2,row_height*6);
-        stage.addActor(txtUsername);
+        createButtonSubmit();
 
+        createButtonReturnMenu();
 
+        createLabelOut();
+
+        font=this.game.getFont();
+    }
+
+    private void createLabelOut() {
+        outputLabel = new Label("",labelSkin,"default");
+        outputLabel.setSize(Gdx.graphics.getWidth(),row_height);
+        outputLabel.setPosition(0,row_height);
+        outputLabel.setAlignment(Align.center);
+        stage.addActor(outputLabel);
+    }
+
+    private void createButtonReturnMenu() {
+        Button button2 = new TextButton("Return Main Menu",mySkin);
+        button2.setSize(col_width*6,row_height*1.5f);
+        button2.setPosition(col_width*6-button2.getWidth()/2,row_height*2);
+        button2.addListener(new InputHandler(this.game){
+            @Override
+            public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
+                try {
+                    this.getGame().MainMenu();
+                }catch (Exception e){}
+            }
+
+            @Override
+            public boolean touchDown (InputEvent event, float x, float y, int pointer, int button) {
+                return true;
+            }
+        });
+        stage.addActor(button2);
+    }
+
+    private void createButtonSubmit() {
         Button button1 = new TextButton("Submit",mySkin);
         button1.setSize(col_width*6,row_height*1.5f);
         button1.setPosition(col_width*6-button1.getWidth()/2,row_height*4);
@@ -78,34 +104,24 @@ public class SubmitScore extends ScreenAdapter {
             }
         });
         stage.addActor(button1);
+    }
 
-        Button button2 = new TextButton("Return Main Menu",mySkin);
-        button2.setSize(col_width*6,row_height*1.5f);
-        button2.setPosition(col_width*6-button2.getWidth()/2,row_height*2);
-        button2.addListener(new InputHandler(this.game){
-            @Override
-            public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
-                try {
-                    this.getGame().MainMenu();
-                }catch (Exception e){}
-            }
+    private void createTextField() {
+        txtUsername = new TextField("", mySkin);
+        txtUsername.setMessageText("username");
+        txtUsername.setMaxLength(12);
+        txtUsername.setSize(col_width*6,row_height);
+        txtUsername.setPosition(col_width*6-txtUsername.getWidth()/2,row_height*6);
+        stage.addActor(txtUsername);
+    }
 
-            @Override
-            public boolean touchDown (InputEvent event, float x, float y, int pointer, int button) {
-                return true;
-            }
-        });
-        stage.addActor(button2);
-
-
-
-        outputLabel = new Label("",labelSkin,"default");
-        outputLabel.setSize(Gdx.graphics.getWidth(),row_height);
-        outputLabel.setPosition(0,row_height);
-        outputLabel.setAlignment(Align.center);
-        stage.addActor(outputLabel);
-
-        font=this.game.getFont();
+    private void createBackground() {
+        Texture texture = this.game.getAssetManager().get("backg.png");
+        Image back = new Image(texture);
+        float scaleFactor = (Gdx.graphics.getHeight()) / back.getHeight();
+        back.setSize(scaleFactor * back.getWidth(), scaleFactor * back.getHeight());
+        back.setPosition(Gdx.graphics.getWidth()/3 - back.getWidth()/2, 0);
+        stage.addActor(back);
     }
 
     public static SubmitScore getInstance() {
