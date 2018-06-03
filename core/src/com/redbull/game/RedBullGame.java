@@ -1,5 +1,6 @@
 package com.redbull.game;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.assets.AssetManager;
@@ -11,6 +12,9 @@ import com.badlogic.gdx.graphics.g2d.ParticleEffect;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
+import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGeneratorLoader;
+import com.badlogic.gdx.graphics.g2d.freetype.FreetypeFontLoader;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.redbull.game.view.ChoosePlane;
 import com.redbull.game.view.GameOver;
@@ -37,20 +41,29 @@ public class RedBullGame extends Game {
 	Texture back;
 	Sprite backSprite;
 	private AssetManager assetManager;
+	 FreeTypeFontGenerator generator;
+	 FreeTypeFontGenerator.FreeTypeFontParameter parameter;
+	 ParticleEffect effect;
 	private BitmapFont font;
 
     @Override
 	public void create () {
 		batch = new SpriteBatch();
 		assetManager = new AssetManager();
+		generator = new FreeTypeFontGenerator(Gdx.files.internal("The Outbox St.ttf"));
+		parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
+		parameter.size = 120;
+		parameter.borderWidth = 5;
+		parameter.borderColor = Color.BLACK;
 
+		font=generator.generateFont(parameter);
 
-		font = new BitmapFont();
-		font.setColor(Color.RED);
+		effect = new ParticleEffect();
+		effect.load(Gdx.files.internal("smoke.p"),Gdx.files.internal(""));
+
 		this.loadAssets();
 
 		MainMenu();
-
 
 	}
 
@@ -81,13 +94,16 @@ public class RedBullGame extends Game {
         return score;
     }
 
-    public JSONArray getHighScores(){
+	public ParticleEffect getEffect() {
+		return effect;
+	}
+
+	public JSONArray getHighScores(){
 		try {
 			HttpClient client = new DefaultHttpClient();
 			HttpGet request = new HttpGet("http://redbullairrace.000webhostapp.com/selectScores.php?limit=10");
 			HttpResponse response = client.execute(request);
 
-			// Get the response
 			BufferedReader rd = new BufferedReader
 					(new InputStreamReader(
 							response.getEntity().getContent()));
@@ -135,8 +151,6 @@ public class RedBullGame extends Game {
 
 	public void scored(){this.score++;}
 
-	public void endGame(){this.pause();}
-
 	public void loadAssets(){
 		this.getAssetManager().load("p1v.png", Texture.class);
 		this.getAssetManager().load("p2v.png", Texture.class);
@@ -183,8 +197,6 @@ public class RedBullGame extends Game {
 		this.getAssetManager().load("smokeon.mp3", Music.class);
 		this.getAssetManager().load("smokeonsonka.mp3", Music.class);
 		this.getAssetManager().load("passing.mp3", Music.class);
-
-
 
 		this.getAssetManager().finishLoading();
 

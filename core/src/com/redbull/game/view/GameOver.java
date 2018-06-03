@@ -1,14 +1,11 @@
 package com.redbull.game.view;
 
-import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
-import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
@@ -16,13 +13,13 @@ import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
-import com.badlogic.gdx.scenes.scene2d.ui.TextField;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.redbull.game.RedBullGame;
 import com.redbull.game.controller.GameController;
 import com.redbull.game.model.Entities.PlaneModel;
 import com.redbull.game.model.GameModel;
+import com.redbull.game.view.Input.InputHandler;
 
 public class GameOver extends ScreenAdapter {
     private static GameOver instance;
@@ -35,9 +32,6 @@ public class GameOver extends ScreenAdapter {
     int col_width = Gdx.graphics.getWidth() / 12;
     private Label outputLabel;
     GlyphLayout layout;
-
-    FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("The Outbox St.ttf"));
-    FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
     BitmapFont font;
 
     public GameOver(final RedBullGame game) {
@@ -48,12 +42,7 @@ public class GameOver extends ScreenAdapter {
         labelSkin = new Skin(Gdx.files.internal("skin3/clean-crispy-ui.json"));
 
 
-        Texture texture = this.game.getAssetManager().get("backg.png");
-        Image back = new Image(texture);
-        float scaleFactor = (Gdx.graphics.getHeight()) / back.getHeight();
-        back.setSize(scaleFactor * back.getWidth(), scaleFactor * back.getHeight());
-        back.setPosition(Gdx.graphics.getWidth()/3 - back.getWidth()/2, 0);
-        stage.addActor(back);
+        drawBackground();
 
 
         Button button1 = new TextButton("Race Again",mySkin);
@@ -65,7 +54,7 @@ public class GameOver extends ScreenAdapter {
                 try {
                     PlaneModel currentModel = GameModel.getInstance().getActivePlane();
 
-                    GameModel.newInstance();
+                    GameModel.getInstance().initializeElements();
 
 
                     if(GameModel.getInstance().getMasterPlane().getVelocity() == currentModel.getVelocity())
@@ -73,7 +62,7 @@ public class GameOver extends ScreenAdapter {
                     else
                         GameModel.getInstance().setChallengerPlane();
 
-                    GameController.newInstance();
+                    GameController.getInstance().initializeControllers();
 
                     this.getGame().startGame();
                 }catch (Exception e){}
@@ -132,12 +121,17 @@ public class GameOver extends ScreenAdapter {
         outputLabel.setAlignment(Align.center);
         stage.addActor(outputLabel);
 
-        parameter.size = 120;
-        parameter.borderWidth = 5;
-        parameter.borderColor = Color.BLACK;
+        font=this.game.getFont();
 
-        font=generator.generateFont(parameter);
+    }
 
+    private void drawBackground() {
+        Texture texture = this.game.getAssetManager().get("backg.png");
+        Image back = new Image(texture);
+        float scaleFactor = (Gdx.graphics.getHeight()) / back.getHeight();
+        back.setSize(scaleFactor * back.getWidth(), scaleFactor * back.getHeight());
+        back.setPosition(Gdx.graphics.getWidth()/3 - back.getWidth()/2, 0);
+        stage.addActor(back);
     }
 
     public static GameOver getInstance() {

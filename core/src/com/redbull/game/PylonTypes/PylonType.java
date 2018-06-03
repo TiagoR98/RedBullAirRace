@@ -1,7 +1,5 @@
 package com.redbull.game.PylonTypes;
 
-import com.badlogic.gdx.graphics.Texture;
-import com.redbull.game.RedBullGame;
 
 public abstract class PylonType {
     private float highestPoint;
@@ -37,7 +35,4 @@ public abstract class PylonType {
         this.needsKnife = needsKnife;
     }
 
-    public void setPylonTexture(String pylonTexture) {
-        this.pylonTexture = pylonTexture;
-    }
 }

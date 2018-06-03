@@ -20,14 +20,13 @@ public class PlaneBody extends EntityBody {
 
         FixtureDef fixtureDef = new FixtureDef();
         fixtureDef.shape = rect;
-        fixtureDef.density = density;      // how heavy is the fixture kg/m^2
-        fixtureDef.friction = friction;     // how slippery is the fixture [0,1]
+        fixtureDef.density = density;
+        fixtureDef.friction = friction;
         fixtureDef.restitution = restitution;
 
 
         this.body.createFixture(fixtureDef);
-        //this.body.applyForce(0,30,this.getBody().getPosition().x,this.getBody().getPosition().y,true);
-    this.body.setAwake(false);
+        this.body.setAwake(false);
         rect.dispose();
     }
 

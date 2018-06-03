@@ -1,6 +1,5 @@
 package com.redbull.game.model.Entities;
 
-import com.badlogic.gdx.Gdx;
 
 import java.util.ArrayList;
 

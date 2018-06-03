@@ -5,7 +5,6 @@ import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
-import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
@@ -17,8 +16,7 @@ import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.redbull.game.RedBullGame;
 import com.redbull.game.controller.GameController;
 import com.redbull.game.model.GameModel;
-
-import static com.redbull.game.controller.GameController.instance;
+import com.redbull.game.view.Input.InputHandler;
 
 public class MainMenu extends ScreenAdapter {
 
@@ -106,8 +104,8 @@ public class MainMenu extends ScreenAdapter {
         outputLabel.setAlignment(Align.center);
         stage.addActor(outputLabel);
 
-        GameModel.newInstance();
-        GameController.newInstance();
+        GameModel.getInstance();
+        GameController.getInstance();
     }
 
     public static MainMenu getInstance() {

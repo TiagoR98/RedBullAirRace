@@ -36,7 +36,6 @@ public class GameModel {
         PylonType p4a = new P4a();
         PylonType p5a = new P5a();
         PylonType p6a = new P6a();
-        //introduzir propriedades do tipo normal
 
         pylonTypes.add(p1v);
         pylonTypes.add(p2v);
@@ -62,10 +61,6 @@ public class GameModel {
         return instance;
     }
 
-    public static GameModel newInstance(){
-        instance = new GameModel();
-        return instance;
-    }
 
     Pool<PylonModel> pylonPool;
 
@@ -76,8 +71,16 @@ public class GameModel {
     PlaneModel active;
 
     ArrayList<PylonModel> pylons;
+    ArrayList<String> listChallenger;
+    ArrayList<String> listMaster;
 
     private GameModel(){
+        initializeElements();
+
+    }
+
+
+    public void initializeElements(){
         pylonTypes = new ArrayList<PylonType>();
         createPylonTypes();
 
@@ -94,25 +97,30 @@ public class GameModel {
         pylons.add(pyl);
 
 
-        ArrayList<String> listChallenger = new ArrayList<String>();
+        initializateImgLists();
+
+
+        challengerPlane = new PlaneModel(5, "chall1.png",listChallenger,"chall7.png",1);
+
+        masterPlane = new PlaneModel(9, "master1.png",listMaster,"master7.png",1.7f);
+        setChallengerPlane();
+    }
+
+    private void initializateImgLists() {
+        listChallenger = new ArrayList<String>();
         listChallenger.add("chall2.png");
         listChallenger.add("chall3.png");
         listChallenger.add("chall4.png");
         listChallenger.add("chall5.png");
         listChallenger.add("chall6.png");
 
-        challengerPlane = new PlaneModel(5, "chall1.png",listChallenger,"chall7.png",1);
 
-        ArrayList<String> listMaster = new ArrayList<String>();
-            listMaster.add("master2.png");
-            listMaster.add("master3.png");
-            listMaster.add("master4.png");
-            listMaster.add("master5.png");
-            listMaster.add("master6.png");
-
-        masterPlane = new PlaneModel(9, "master1.png",listMaster,"master7.png",1.7f);
-        setChallengerPlane();
-
+        listMaster = new ArrayList<String>();
+        listMaster.add("master2.png");
+        listMaster.add("master3.png");
+        listMaster.add("master4.png");
+        listMaster.add("master5.png");
+        listMaster.add("master6.png");
     }
 
     public int getPylonTextureHeight(){

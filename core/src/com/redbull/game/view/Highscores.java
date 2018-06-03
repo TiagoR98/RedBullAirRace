@@ -2,12 +2,10 @@ package com.redbull.game.view;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
-import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
@@ -19,6 +17,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.redbull.game.RedBullGame;
+import com.redbull.game.view.Input.InputHandler;
 
 import org.json.JSONArray;
 
@@ -35,8 +34,6 @@ public class Highscores extends ScreenAdapter {
     private Label outputLabel;
     GlyphLayout layout;
 
-    FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("The Outbox St.ttf"));
-    FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
     BitmapFont font;
     JSONArray scores;
 
@@ -111,12 +108,7 @@ public class Highscores extends ScreenAdapter {
         outputLabel.setAlignment(Align.center);
         stage.addActor(outputLabel);
 
-
-        parameter.size = 120;
-        parameter.borderWidth = 5;
-        parameter.borderColor = Color.BLACK;
-
-        font=generator.generateFont(parameter);
+        font=this.game.getFont();
     }
 
     public static Highscores getInstance() {
