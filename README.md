@@ -1,4 +1,4 @@
-# RedBullAirRace
+﻿# RedBullAirRace
 
 ## Autores
 - Tiago José Antunes Ribeiro | 201605619 | up201605619@fe.up.pt
@@ -38,5 +38,24 @@ Submeter HighScore |
 ![submit_highscore](/images/submit_highscore.png)|
 
 ###Manual de Instruções
-![choose_plane](/RedBullAirRace/android/assets/Manual/manres.png)
+![Como_Jogar](/RedBullAirRace/android/assets/Manual/manrules.png)
+![Screenshots](/RedBullAirRace/android/assets/Manual/compilacao.png)
 
+###Dificuldades
+* Conseguir carregar todos os assets do jogo apenas no início, em vez de os ir carregando repetidamente, o que causava loading screens e eventualmente um crash por falta de memória.
+
+
+* Conseguir construir o jugo numa arquitetura MVC, baseada na que foi fornecida, tendo sido necessário algum tempo para entender como esta funciona e como as classes lá estão organizadas.
+
+* Programar as físicas do avião, visto que o box2d trabalha em metros foi necessário estabelecer as dimensões físicas da arena e efetuar a sua conversão para o respetivo ecrã de modo a que a velocidade linear do avião pudesse ser a correta. Além disso, conseguir implementar o impulso correto no avião de modo ao jogo ficar com um grau de dificuldade adequado e a este ser equilibrado com a gravidade.
+
+
+* Do mesmo modo, conseguir que a colisão com o pylon fosse avaliada usando medidas absolutas (metros).
+
+-Por fim, perceber como construir um jogo em libgdx em android, lidando assim pela primeira vez com interfaces, resoluções, toques, gestos,partículas, fontes e assets.
+
+###Tempo dispendido e distribuição
+* O trabalho foi realizado durante as aulas laboratorias dedicadas ao projeto e durante as últimas duas semanas antes da data de entrega.
+* Durante as aulas o grupo trabalhou em conjunto nas mesmas tarefas. Na última fase do trabalho, o elemento Tiago Ribeiro liderou o processo de desenvolvimento, contanto com a colaboração do Bruno Oliveira.
+
+###Tempo dispendido e distribuição
