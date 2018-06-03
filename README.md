@@ -42,6 +42,8 @@ Submeter HighScore |
 u
 ### Manual de Instruções
 ![Como_Jogar](/android/assets/Manual/manrules.png)
+
+### Screenshots
 ![Screenshots](/android/assets/Manual/compilacao.png)
 
 ### Base de Dados (Highscores)
