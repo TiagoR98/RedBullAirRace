@@ -4,8 +4,7 @@
 - Tiago José Antunes Ribeiro | 201605619 | up201605619@fe.up.pt
 - Bruno Edgar Évora Rebelo Oliveira | 201605516 | up201605516@fe.up.pt
 
-## Checkpoint
-
+## Entega Final
 ### Diagramas UML
 
 #### Classes
@@ -38,11 +37,6 @@ Submeter HighScore |
 -------------------|
 ![submit_highscore](/images/submit_highscore.png)|
 
-### Casos de teste
-* VelocidadeAdequada
-* ImpulsoAoToque
-* ColisaoComPylon
-* ColisaoComChao
-* Pontuacao
-* VerificacaoHighscore
-* EscolhaDeAviao
+###Manual de Instruções
+![choose_plane](/RedBullAirRace/android/assets/Manual/manres.png)
+
