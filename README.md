@@ -49,6 +49,9 @@ u
 ### Base de Dados (Highscores)
 * Para armazenar as Highscores foi criada uma base de dados MySQL num servidor remoto, sendo que a comunicação com a aplicação é feita usando ficheiros PHP, acedidos através da classe HTTPRequest do Java.
 
+### Instalação
+Instalar no dispositivo Android a APK fornceida na raíz do repositório.
+
 ### Dificuldades
 * Conseguir carregar todos os assets do jogo apenas no início, em vez de os ir carregando repetidamente, o que causava loading screens e eventualmente um crash por falta de memória.
 
