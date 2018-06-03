@@ -76,8 +76,8 @@ public class RulesScreen extends ScreenAdapter {
 
     private void createChooseButton() {
         Button button2 = new TextButton("Choose Class",mySkin);
-        button2.setSize(col_width*6,row_height*1.5f);
-        button2.setPosition(col_width*6-button2.getWidth()/2,row_height*6);
+        button2.setSize(col_width*6,row_height*0.8f);
+        button2.setPosition(col_width*11-button2.getWidth(),row_height*11-row_height/3.5f);
         button2.addListener(new InputHandler(this.game){
             @Override
             public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
