@@ -38,8 +38,8 @@ Submeter HighScore |
 ![submit_highscore](/images/submit_highscore.png)|
 
 ###Manual de Instruções
-![Como_Jogar](/RedBullAirRace/android/assets/Manual/manrules.png)
-![Screenshots](/RedBullAirRace/android/assets/Manual/compilacao.png)
+![Como_Jogar](/android/assets/Manual/manrules.png)
+![Screenshots](/android/assets/Manual/compilacao.png)
 
 ###Dificuldades
 * Conseguir carregar todos os assets do jogo apenas no início, em vez de os ir carregando repetidamente, o que causava loading screens e eventualmente um crash por falta de memória.
