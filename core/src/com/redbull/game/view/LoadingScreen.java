@@ -47,15 +47,15 @@ public class LoadingScreen extends ScreenAdapter {
     private void createProgressBar() {
         progressBarStyle = new ProgressBar.ProgressBarStyle();
         pixmap = new Pixmap(0, 20, Pixmap.Format.RGBA8888);
-        pixmap.setColor(Color.GREEN);
+        pixmap.setColor(Color.DARK_GRAY);
         pixmap.fill();
         drawable = new TextureRegionDrawable(new TextureRegion(new Texture(pixmap)));
         pixmap.dispose();
 
-        progressBarStyle.background = drawable;
+        progressBarStyle.knobAfter = drawable;
 
         Pixmap pixmap = new Pixmap(100, 20, Pixmap.Format.RGBA8888);
-        pixmap.setColor(Color.GREEN);
+        pixmap.setColor(Color.WHITE);
         pixmap.fill();
         drawable = new TextureRegionDrawable(new TextureRegion(new Texture(pixmap)));
         pixmap.dispose();
