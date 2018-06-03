@@ -93,7 +93,7 @@ public class MainMenu extends ScreenAdapter {
             @Override
             public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
                 try {
-                    this.getGame().choosePlane();
+                    this.getGame().seeRules();
                 }catch (Exception e){}
             }
 

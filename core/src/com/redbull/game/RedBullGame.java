@@ -23,6 +23,7 @@ import com.badlogic.gdx.Game;
 import com.redbull.game.view.Highscores;
 import com.redbull.game.view.LoadingScreen;
 import com.redbull.game.view.MainMenu;
+import com.redbull.game.view.RulesScreen;
 import com.redbull.game.view.SubmitScore;
 
 import org.apache.http.HttpResponse;
@@ -136,6 +137,10 @@ public class RedBullGame extends Game {
 
 	public void LoadingScreen(){
 		setScreen(new LoadingScreen(this));
+	}
+
+	public void seeRules(){
+		setScreen(new RulesScreen(this));
 	}
 
 	public void choosePlane(){
