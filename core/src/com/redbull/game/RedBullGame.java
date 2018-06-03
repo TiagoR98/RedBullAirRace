@@ -21,6 +21,7 @@ import com.redbull.game.view.GameOver;
 import com.redbull.game.view.GameView;
 import com.badlogic.gdx.Game;
 import com.redbull.game.view.Highscores;
+import com.redbull.game.view.LoadingScreen;
 import com.redbull.game.view.MainMenu;
 import com.redbull.game.view.SubmitScore;
 
@@ -61,9 +62,9 @@ public class RedBullGame extends Game {
 		effect = new ParticleEffect();
 		effect.load(Gdx.files.internal("smoke.p"),Gdx.files.internal(""));
 
-		this.loadAssets();
+		LoadingScreen();
 
-		MainMenu();
+		this.loadAssets();
 
 	}
 
@@ -131,6 +132,10 @@ public class RedBullGame extends Game {
 
 	public void MainMenu(){
 		setScreen(new MainMenu(this));
+	}
+
+	public void LoadingScreen(){
+		setScreen(new LoadingScreen(this));
 	}
 
 	public void choosePlane(){
